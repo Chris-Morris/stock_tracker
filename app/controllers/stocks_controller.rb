@@ -7,7 +7,8 @@ class StocksController < ApplicationController
 
   # GET /stocks or /stocks.json
   def index
-    @stocks = current_user.stocks
+    @stocks = StockDatum.all
+    # @stocks = current_user.stocks
 
     # @api = StockQuote::Stock.new(api_key: 'pk_bbe95e67cb694c3a9c7e3cf55ef9f2e8')
 
@@ -70,18 +71,38 @@ class StocksController < ApplicationController
   end
 
   def fetch_stocks
+    tickers = ["TSLA", "GOOG", "FB", "UBER", "LYFT", "AA", "MSFT", "F"]
     api_key = '5d1261a6941b19.92876445'
-    url = "https://eodhistoricaldata.com/api/fundamentals/AAPL.US?api_token=#{api_key}"
-    response = RestClient.get(url)
-    json = JSON.parse(response)
-    general = json["General"]
-    render json: response
+
+    tickers.each do |ticker|
+      url = "https://eodhistoricaldata.com/api/fundamentals/#{ticker}.US?api_token=#{api_key}"
+      response = RestClient.get(url)
+      json = JSON.parse(response)
+      general = json["General"]
+      stock = StockDatum.new
+      stock.id = json["General"]["Code"]
+      stock.general = json["General"]
+      stock.highlights = json["Highlights"]
+      stock.valuation = json["Valuation"]
+      stock.shares_stats = json["SharesStats"]
+      stock.technicals = json["Technicals"]
+      stock.splits_dividends = json["SplitsDividends"]
+      stock.analyst_ratings = json["AnalystRatings"]
+      stock.holders = json["Holders"]
+      stock.insider_transactions = json["InsiderTransactions"]
+      stock.esg_scores = json["ESGScores"]
+      stock.outstanding_shares = json["outstandingShares"]
+      stock.earnings = json["Earnings"]
+      stock.financials = json["Financials"]
+      stock.save
+    end
+    render json: {"name": "Chris"}
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stock
-      @stock = Stock.find(params[:id])
+      @stock = StockDatum.where(id: params[:id])
     end
 
     # Only allow a list of trusted parameters through.

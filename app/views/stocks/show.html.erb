@@ -1,6 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @stock %>
+<%
+=begin%>
+ <%= render partial: 'stocks/stock' locals: {stock: @stock} %>
+<%
+=end%>
+
+<%= @stock.general["Code"] %>
 
 <div>
   <%= link_to "Edit this stock", edit_stock_path(@stock) %> |
