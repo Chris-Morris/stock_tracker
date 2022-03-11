@@ -1,0 +1,16 @@
+<div class="col-md-6 offset-md-3">
+  <div class="card">
+    <h2 class="card-header">Edit Stock</h2>
+    <div class="card-body">
+
+      <%= render "form", stock: @stock %>
+
+      <br>
+
+      <div>
+        <%= link_to "Show this stock", @stock %> |
+        <%= link_to "Back to stocks", stocks_path %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: MyString
+  general: 
+  highlights: 
+  valuation: 
+  shares_stats: 
+  technicals: 
+  splits_dividends: 
+  analyst_ratings: 
+  holders: 
+  insider_transactions: 
+  esg_scores: 
+  outstanding_shares: 
+  earnings: 
+  financials: 
+
+two:
+  id: MyString
+  general: 
+  highlights: 
+  valuation: 
+  shares_stats: 
+  technicals: 
+  splits_dividends: 
+  analyst_ratings: 
+  holders: 
+  insider_transactions: 
+  esg_scores: 
+  outstanding_shares: 
+  earnings: 
+  financials: 

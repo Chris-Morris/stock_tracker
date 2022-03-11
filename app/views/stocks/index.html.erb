@@ -1,0 +1,44 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Stocks</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Company</th>
+      <th>Latest Price</th>
+      <th>Market Capitalization</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%
+=begin%>
+ <div id="stocks">
+      <% @stocks.each do |stock| %>
+        <% begin %>
+          <% @ticker = StockQuote::Stock.quote(stock.ticker) %>
+          <tr>
+            <td><%= link_to @ticker.company_name, stock %></td>
+            <td>$<%= number_with_precision(@ticker.latest_price, precision: 2, delimiter: ",") %></td>
+            <td>$<%= number_with_precision(@ticker.market_cap, precision: 0, delimiter: ",") %></td>
+            <td><center><%= link_to 'Edit', edit_stock_path(stock), class: "btn btn-secondary" %></center></td>
+            <td><center><%= link_to 'Delete', stock_path(stock), data: { turbo_method: :delete }, class: "btn btn-danger" %></center></td>
+          </tr>
+        <% rescue %>
+          <tr>
+            <td>Ticker doesn't exist</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td><center><%= link_to 'Edit', edit_stock_path(stock), class: "btn btn-secondary" %></center></td>
+            <td><center><%= link_to 'Delete', stock_path(stock), data: { turbo_method: :delete }, class: "btn btn-danger" %></center></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </div> 
+<%
+=end%>
+  </tbody>
+</table>
+
+<%= link_to "New stock", new_stock_path %>

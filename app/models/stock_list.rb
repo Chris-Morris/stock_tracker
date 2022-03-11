@@ -1,0 +1,2 @@
+class StockList < ApplicationRecord
+end
