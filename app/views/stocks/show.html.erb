@@ -1,16 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<%
-=begin%>
- <%= render partial: 'stocks/stock' locals: {stock: @stock} %>
-<%
-=end%>
+<div id="<%= dom_id @stock %>" class="card">
+  <%= render partial: 'stocks/card_header', locals: {stock: @stock} %> 
 
-<%= @stock.general["Code"] %>
+  <div class="card-body">
+    <img src=<%= "https://eodhistoricaldata.com/img/logos/US/#{@stock.general["Code"].downcase}.png" %>>
+    <h3>Sector: <%= @stock.general["Sector"] %></h3>
+    <br/>
+    <h3>Industry: <%= @stock.general["Industry"] %></h3>
+    <br/>
+    <h3>Subindustry: <%= @stock.general["GicSector"] %></h3>
+    <br/>
+    <p class="card-text">Description: <%= @stock.general["Description"] %></p>
+    <br/>
+  </div>
+</div>
 
 <div>
-  <%= link_to "Edit this stock", edit_stock_path(@stock) %> |
   <%= link_to "Back to stocks", stocks_path %>
-
-  <%= button_to "Destroy this stock", @stock, method: :delete %>
 </div>

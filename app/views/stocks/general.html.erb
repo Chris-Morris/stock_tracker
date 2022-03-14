@@ -1,0 +1,15 @@
+  <div class="card-header">
+    <strong><%= @general["Code"] %> - <%= @general["Name"] %></strong>
+  </div>
+
+  <div class="card-body">
+    <img src=<%= "https://eodhistoricaldata.com/img/logos/US/#{@general["Code"].downcase}.png" %>>
+    <h3>Sector: <%= @general["Sector"] %></h3>
+    <br/>
+    <h3>Industry: <%= @general["Industry"] %></h3>
+    <br/>
+    <h3>Subindustry: <%= @general["GicSector"] %></h3>
+    <br/>
+    <p>Description: <%= @general["Description"] %></p>
+    <br/>
+  </div>

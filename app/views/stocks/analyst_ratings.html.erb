@@ -1,0 +1,18 @@
+<%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
+
+<div class="card-body">
+  <h4>Rating: <%= @analyst_ratings["Rating"] %></h4>
+  <br/>
+  <h4>Target Price: <%= @analyst_ratings["TargetPrice"] %></h4>
+  <br/>
+  <h4>Strong Buy: <%= @analyst_ratings["StrongBuy"] %></h4>
+  <br/>
+  <h4>Buy: <%= @analyst_ratings["Buy"] %></h4>
+  <br/>
+  <h4>Hold: <%= @analyst_ratings["Hold"] %></h4>
+  <br/>
+  <h4>Sell: <%= @analyst_ratings["Sell"] %></h4>
+  <br/>
+  <h4>Strong Sell: <%= @analyst_ratings["StrongSell"] %></h4>
+  <br/>
+</div>

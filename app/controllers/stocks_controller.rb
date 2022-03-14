@@ -1,5 +1,5 @@
 class StocksController < ApplicationController
-  before_action :set_stock, only: %i[ show edit update destroy ]
+  before_action :set_stock, only: %i[ show general highlights valuation analyst_ratings earnings financials edit update destroy ]
   before_action :authenticate_user!
   before_action :correct_user, only: %i[ edit update destroy ]
 
@@ -16,6 +16,30 @@ class StocksController < ApplicationController
 
   # GET /stocks/1 or /stocks/1.json
   def show
+  end
+
+  def general
+    @general = @stock.general
+  end
+
+  def highlights
+    @highlights = @stock.highlights
+  end
+
+  def valuation
+    @valuation = @stock.valuation
+  end
+
+  def analyst_ratings
+    @analyst_ratings = @stock.analyst_ratings
+  end
+
+  def earnings
+    @earnings = @stock.earnings
+  end
+
+  def financials
+    @financials = @stock.financials
   end
 
   # GET /stocks/new
@@ -102,7 +126,7 @@ class StocksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stock
-      @stock = StockDatum.where(id: params[:id])
+      @stock = StockDatum.where(id: params[:id]).first
     end
 
     # Only allow a list of trusted parameters through.

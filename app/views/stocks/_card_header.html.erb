@@ -1,0 +1,23 @@
+<div class="card-header bg-primary">
+  <strong style="color: white;"><%= @stock.general["Code"] %> - <%= @stock.general["Name"] %></strong>
+  <ul class="nav nav-tabs card-header-tabs">
+    <li class="nav-item">
+      <%= link_to "Summary", stock.general["Code"], class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Highlights", stock.general["Code"] + '/highlights', class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Valuation", stock.general["Code"] + '/valuation', class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Analyst Ratings", stock.general["Code"] + '/analystratings', class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Earnings", stock.general["Code"] + '/earnings', class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Financials", stock.general["Code"] + '/financials', class: "nav-link" %>
+    </li>
+  </ul>
+</div>
