@@ -1,1 +1,9 @@
-<h1>Hello Chris!</h1>
+<% if user_signed_in? %>
+  <% @user_name = current_user.email %>
+<% else %>
+  <% @user_name = "Guest" %>
+<% end %>
+
+<div data-controller="home" data-home-name-value=<%= @user_name %> data-home-pressed-class="balanceSheetPressed" data-home-unpressed-class="balanceSheet">
+  <h1 data-home-target="greeting"></h1>
+</div>

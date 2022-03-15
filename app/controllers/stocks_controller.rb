@@ -1,5 +1,5 @@
 class StocksController < ApplicationController
-  before_action :set_stock, only: %i[ show general highlights valuation analyst_ratings earnings financials edit update destroy ]
+  before_action :set_stock, only: %i[ show highlights valuation analyst_ratings earnings financials edit update destroy ]
   before_action :authenticate_user!
   before_action :correct_user, only: %i[ edit update destroy ]
 
@@ -16,10 +16,6 @@ class StocksController < ApplicationController
 
   # GET /stocks/1 or /stocks/1.json
   def show
-  end
-
-  def general
-    @general = @stock.general
   end
 
   def highlights
