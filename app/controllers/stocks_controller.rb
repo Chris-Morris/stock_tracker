@@ -12,8 +12,8 @@ class StocksController < ApplicationController
   end
 
   def list
-    stocks = StockDatum.order("#{params[:column]} asc")
-    render(partial: 'stocks', locals: { stocks: stocks })
+    @stocks = StockDatum.order("#{params[:column]} asc")
+    render(partial: 'stocks', locals: { stocks: @stocks })
   end
 
   # GET /stocks/1 or /stocks/1.json
