@@ -2,22 +2,22 @@
   <strong style="color: white;"><%= @stock.general["Code"] %> - <%= @stock.general["Name"] %></strong>
   <ul class="nav nav-tabs card-header-tabs">
     <li class="nav-item">
-      <%= link_to "Summary", stock.general["Code"], class: "nav-link" %>
+      <%= link_to "Summary", stock_path(stock), class: "nav-link" %>
     </li>
     <li class="nav-item">
-      <%= link_to "Highlights", stock.general["Code"] + '/highlights', class: "nav-link" %>
+      <%= link_to "Highlights", highlights_stock_path(stock), class: "nav-link" %>
     </li>
     <li class="nav-item">
-      <%= link_to "Valuation", stock.general["Code"] + '/valuation', class: "nav-link" %>
+      <%= link_to "Valuation", valuation_stock_path(stock), class: "nav-link" %>
     </li>
     <li class="nav-item">
-      <%= link_to "Analyst Ratings", stock.general["Code"] + '/analystratings', class: "nav-link" %>
+      <%= link_to "Analyst Ratings", analyst_ratings_stock_path(stock), class: "nav-link" %>
     </li>
     <li class="nav-item">
-      <%= link_to "Earnings", stock.general["Code"] + '/earnings', class: "nav-link" %>
+      <%= link_to "Earnings", earnings_stock_path(stock), class: "nav-link" %>
     </li>
     <li class="nav-item">
-      <%= link_to "Financials", stock.general["Code"] + '/financials', class: "nav-link" %>
+      <%= link_to "Financials", financials_stock_path(stock), class: "nav-link" %>
     </li>
   </ul>
 </div>
