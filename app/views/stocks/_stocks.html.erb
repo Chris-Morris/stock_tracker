@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "stocks" do %>
   <table class="table table-striped table-bordered table-hover">
-    <thead class="thead-dark">
+    <thead class="thead-dark bg-primary">
       <tr>
         <th id="stocks-symbol"><%= sort_link(column: "general.Code", label: "Symbol") %></th>
         <th id="stocks-name"><%= sort_link(column: "general.Company_name", label: "Company Name") %></th>

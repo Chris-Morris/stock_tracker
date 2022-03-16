@@ -1,9 +1,28 @@
 <%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
 
 <div data-controller="financials" data-financials-pressed-class="balanceSheetPressed" data-financials-unpressed-class="balanceSheet" data-financials-hide-class="hideSheet">
-  <div class="toggle-container"><h6 data-action="click->financials#quarter" data-financials-target="quarter" class="quarter-yearly-toggle quarter balanceSheetPressed">Quarter</h6> | <h6 data-action="click->financials#annual" data-financials-target="annual" class="quarter-yearly-toggle annual">Annual</h6></div>
-  
-  <div class="card-body" data-financials-target="quarterSheet">
+  <div style="display:flex; justify-content: space-around;">
+    <div class="toggle-container"><h6 data-action="click->financials#quarter" data-financials-target="quarter" class="quarter-yearly-toggle quarter balanceSheetPressed">Income Statement</h6> | <h6 data-action="click->financials#annual" data-financials-target="annual" class="quarter-yearly-toggle annual">Balance Sheet</h6> | <h6 data-action="click->financials#annual" data-financials-target="annual" class="quarter-yearly-toggle annual">Cash Flow</h6></div>
+    <div class="toggle-container"><h6 data-action="click->financials#quarter" data-financials-target="quarter" class="quarter-yearly-toggle quarter balanceSheetPressed">Quarter</h6> | <h6 data-action="click->financials#annual" data-financials-target="annual" class="quarter-yearly-toggle annual">Annual</h6></div>
+  </div>
+
+  <div class="card-body" data-financials-target="quarterIncomeStatement">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <% @financials["Income_Statement"]["quarterly"].reverse_each.with_index do |(key, value), index| %>
+        <%= render partial: 'income_statement_table', locals: {key: key, value: value} %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card-body hideSheet" data-financials-target="annualIncomeStatement">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <% @financials["Income_Statement"]["yearly"].reverse_each.with_index do |(key, value), index| %>
+        <%= render partial: 'income_statement_table', locals: {key: key, value: value} %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card-body hideSheet" data-financials-target="quarterBalanceSheet">
     <div class="row row-cols-1 row-cols-md-2 g-4">
       <% @financials["Balance_Sheet"]["quarterly"].reverse_each.with_index do |(key, value), index| %>
         <%= render partial: 'balance_sheet_table', locals: {key: key, value: value} %>
@@ -11,10 +30,26 @@
     </div>
   </div>
 
-  <div class="card-body hideSheet" data-financials-target="annualSheet">
+  <div class="card-body hideSheet" data-financials-target="annualBalanceSheet">
     <div class="row row-cols-1 row-cols-md-2 g-4">
       <% @financials["Balance_Sheet"]["yearly"].reverse_each.with_index do |(key, value), index| %>
         <%= render partial: 'balance_sheet_table', locals: {key: key, value: value} %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card-body hideSheet" data-financials-target="quarterCashFlow">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <% @financials["Balance_Sheet"]["quarterly"].reverse_each.with_index do |(key, value), index| %>
+        <%= render partial: 'cash_flow_table', locals: {key: key, value: value} %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card-body hideSheet" data-financials-target="annualCashFlow">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <% @financials["Balance_Sheet"]["yearly"].reverse_each.with_index do |(key, value), index| %>
+        <%= render partial: 'cash_flow_table', locals: {key: key, value: value} %>
       <% end %>
     </div>
   </div>
