@@ -9,9 +9,11 @@ class StocksController < ApplicationController
   def index
     @stocks = StockDatum.all
     # @stocks = current_user.stocks
+  end
 
-    # @api = StockQuote::Stock.new(api_key: 'pk_bbe95e67cb694c3a9c7e3cf55ef9f2e8')
-
+  def list
+    stocks = StockDatum.order("#{params[:column]} asc")
+    render(partial: 'stocks', locals: { stocks: stocks })
   end
 
   # GET /stocks/1 or /stocks/1.json

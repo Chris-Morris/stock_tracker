@@ -2,37 +2,6 @@
 
 <h1>Stocks</h1>
 
-<div data-controller="financials">
-  <h1 data-financials-target="output"></h1>
+<div>
+  <%= render "stocks", stocks: @stocks %>
 </div>
-
-<table class="table table-striped table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th>Symbol</th>
-      <th>Company Name</th>
-      <th>Sector</th>
-      <th>Industry</th>
-      <th>Profit Margin</th>
-
-    </tr>
-  </thead>
-
-  <tbody>
- <div id="stocks">
-      <% @stocks.each do |stock| %>
-        <tr>
-          <td><%= link_to stock.general["Code"], stock_path(stock.general["Code"]) %></td>
-          <td><%= stock.general["Name"] %></td>
-          <td><%= stock.general["Sector"] %></td>
-          <td><%= stock.general["Industry"] %></td>
-          <td><%= number_to_percentage(stock.highlights["ProfitMargin"] * 100, precision: 2) %></td>
-          <td><center><%= link_to 'Edit', edit_stock_path(stock), class: "btn btn-secondary" %></center></td>
-          <td><center><%= link_to 'Delete', stock_path(stock), data: { turbo_method: :delete }, class: "btn btn-danger" %></center></td>
-        </tr>
-      <% end %>
-    </div>
-  </tbody>
-</table>
-
-<%= link_to "New stock", new_stock_path %>

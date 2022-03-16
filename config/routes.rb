@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     get :analyst_ratings, on: :member
     get :earnings, on: :member
     get :financials, on: :member
+
+    collection do
+      get 'list'
+    end
   end
 
   devise_for :users
