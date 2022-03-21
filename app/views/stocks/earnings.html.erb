@@ -1,33 +1,33 @@
-<%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
+<div class="card">
+  <%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
 
-<div class="card-body">
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-    <% @earnings["History"].reverse_each.with_index do |(key, value), index| %>
-      <% if value["epsActual"] != nil %>
-      <div class="col">
-        <div class="card">
-          <div class="card-header bg-primary">
-            <strong style="color: white;">Earnings Date: <%= key %></strong>
-          </div>
+  <div class="card-body">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <% @earnings["History"].reverse_each.with_index do |(key, value), index| %>
+        <% if value["epsActual"] != nil %>
+        <div class="col">
+          <div class="card">
+            <div class="card-header bg-primary">
+              <strong style="color: white;">Earnings Date: <%= key %></strong>
+            </div>
 
-          <div class="card-body">
-            <h4>Report Date: <%= value["reportDate"] %></h4>
-            <hr/>
-            <h4>Before/After Market: <%= value["beforeAfterMarket"] %></h4>
-            <hr/>
-            <h4>EPS Actual: <%= value["epsActual"] %></h4>
-            <hr/>
-            <h4>EPS Estimate: <%= value["epsEstimate"] %></h4>
-            <hr/>
-            <h4>EPS Difference: <%= value["epsDifference"] %></h4>
-            <hr/>
-            <h4>Surprise Percent: <%= value["surprisePercent"] %></h4>
+            <div class="card-body">
+              <h4>Report Date: <%= value["reportDate"] %></h4>
+              <hr/>
+              <h4>Before/After Market: <%= value["beforeAfterMarket"] %></h4>
+              <hr/>
+              <h4>EPS Actual: <%= value["epsActual"] %></h4>
+              <hr/>
+              <h4>EPS Estimate: <%= value["epsEstimate"] %></h4>
+              <hr/>
+              <h4>EPS Difference: <%= value["epsDifference"] %></h4>
+              <hr/>
+              <h4>Surprise Percent: <%= value["surprisePercent"] %></h4>
+            </div>
           </div>
         </div>
-      </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-  
-  
 </div>

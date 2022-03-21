@@ -1,12 +1,14 @@
-<%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
+<div class="card">
+  <%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
 
-<div class="card-body">
-  <h3>EBITDA: <%= @highlights["EBITDA"] %></h3>
-  <br/>
-  <h3>PE Ratio: <%= @highlights["PERatio"] %></h3>
-  <br/>
-  <h3>Book Value: <%= @highlights["BookValue"] %></h3>
-  <br/>
-  <p>EPS: <%= @highlights["EarningsShare"] %></p>
-  <br/>
+  <div class="card-body">
+    <h3>EBITDA: <%= @highlights["EBITDA"] %></h3>
+    <br/>
+    <h3>PE Ratio: <%= @highlights["PERatio"] %></h3>
+    <br/>
+    <h3>Book Value: <%= @highlights["BookValue"] %></h3>
+    <br/>
+    <p>EPS: <%= @highlights["EarningsShare"] %></p>
+    <br/>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :scans
   resources :stocks do
     get :highlights, on: :member
     get :valuation, on: :member

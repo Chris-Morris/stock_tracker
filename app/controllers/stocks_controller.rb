@@ -92,35 +92,6 @@ class StocksController < ApplicationController
     redirect_to stocks_path, notice: "Not Authorized to perform this action" if @ticker.nil?
   end
 
-  def fetch_stocks
-    tickers = ["TSLA", "GOOG", "FB", "UBER", "LYFT", "AA", "MSFT", "F"]
-    api_key = '5d1261a6941b19.92876445'
-
-    tickers.each do |ticker|
-      url = "https://eodhistoricaldata.com/api/fundamentals/#{ticker}.US?api_token=#{api_key}"
-      response = RestClient.get(url)
-      json = JSON.parse(response)
-      general = json["General"]
-      stock = StockDatum.new
-      stock.id = json["General"]["Code"]
-      stock.general = json["General"]
-      stock.highlights = json["Highlights"]
-      stock.valuation = json["Valuation"]
-      stock.shares_stats = json["SharesStats"]
-      stock.technicals = json["Technicals"]
-      stock.splits_dividends = json["SplitsDividends"]
-      stock.analyst_ratings = json["AnalystRatings"]
-      stock.holders = json["Holders"]
-      stock.insider_transactions = json["InsiderTransactions"]
-      stock.esg_scores = json["ESGScores"]
-      stock.outstanding_shares = json["outstandingShares"]
-      stock.earnings = json["Earnings"]
-      stock.financials = json["Financials"]
-      stock.save
-    end
-    render json: {"name": "Chris"}
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stock
