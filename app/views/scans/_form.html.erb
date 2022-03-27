@@ -1,37 +1,39 @@
 <%= form_with(model: scan) do |form| %>
-  <% if scan.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(scan.errors.count, "error") %> prohibited this scan from being saved:</h2>
+  <div class="form-group">
+    <% if scan.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(scan.errors.count, "error") %> prohibited this scan from being saved:</h2>
 
-      <ul>
-        <% scan.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% scan.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title, class: "form-control" %>
     </div>
-  <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+    <div>
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
+    <div>
+      <%= form.label :quarterly_earnings, style: "display: block" %>
+      <%= form.number_field :quarterly_earnings, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :quarterly_earnings, style: "display: block" %>
-    <%= form.number_field :quarterly_earnings %>
-  </div>
+    <div>
+      <%= form.label :yearly_earnings, style: "display: block" %>
+      <%= form.number_field :yearly_earnings, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :yearly_earnings, style: "display: block" %>
-    <%= form.number_field :yearly_earnings %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <div>
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

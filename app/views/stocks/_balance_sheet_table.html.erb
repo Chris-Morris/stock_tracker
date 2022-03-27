@@ -1,48 +1,268 @@
-<div class="col">
+<div class="col-12">
   <div class="card">
     <div class="card-header bg-primary">
-      <strong style="color: white;">Date: <%= key %></strong>
+      <strong style="color: white;">Balance Sheet</strong>
     </div>
 
     <div class="card-body">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item financials-header">Assets</li>
-        <li class="list-group-item financials-sub-header">Current Assets</li>
-        <li class="list-group-item financials-item">Cash</li>
-        <li class="list-group-item financials-sub-item">Cash and cash equivalents: <%= currency(value["cash"]) %></li>
-        <li class="list-group-item financials-sub-item">Other short-term investments: <%= currency(value["shortTermInvestments"]) %></li>
-        <li class="list-group-item financials-sub-item">Total cash: <%= currency(value["cashAndShortTermInvestments"]) %></li>
-        <li class="list-group-item financials-item">Net receivables: <%= currency(value["netReceivables"]) %></li>
-        <li class="list-group-item financials-item">Inventory: <%= currency(value["inventory"]) %></li>
-        <li class="list-group-item financials-item">Other Current Assets: <%= currency(value["otherCurrentAssets"]) %></li>
-        <li class="list-group-item financials-item">Total Current Assets: <%= currency(value["totalCurrentAssets"]) %></li>
-        <li class="list-group-item financials-sub-header">Non-Current Assets: <%= currency(value["nonCurrentAssetsTotal"]) %></li>
-        <li class="list-group-item financials-item">Property, Plant and Equipment: <%= currency(value["propertyPlantEquipment"]) %></li>
-        <li class="list-group-item financials-item">Other Non-Current Assets: <%= currency(value["nonCurrrentAssetsOther"]) %></li>
-        <li class="list-group-item financials-item">Total Non-Current Assets: <%= currency(value["nonCurrentAssetsTotal"]) %></li>
-        <li class="list-group-item financials-header">Total Assets: <%= currency(value["totalAssets"]) %></li>
-
-        <br/>
-        <li class="list-group-item financials-header">Liabilities and Stockholder's Equity</li>
-        <li class="list-group-item financials-sub-header">Liabilities</li>
-        <li class="list-group-item financials-item">Current Liabilities</li>
-        <li class="list-group-item financials-sub-item">Current Debt: <%= currency(value["shortTermDebt"]) %></li>
-        <li class="list-group-item financials-sub-item">Accounts Payable: <%= currency(value["accountsPayable"]) %></li>
-        <li class="list-group-item financials-sub-item">Other Current Liabilities: <%= currency(value["otherCurrentLiab"]) %></li>
-        <li class="list-group-item financials-sub-item">Total Current Liabilities: <%= currency(value["totalCurrentLiabilities"]) %></li>
-        <li class="list-group-item financials-item">Non-Current Liabilities</li>
-        <li class="list-group-item financials-sub-item">Long-Term Debt: <%= currency(value["longTermDebt"]) %></li>
-        <li class="list-group-item financials-sub-item">Other Non-Current Liabilities: <%= currency(value["nonCurrentLiabilitiesOther"]) %></li>
-        <li class="list-group-item financials-sub-item">Total Non-Current Liabilities: <%= currency(value["nonCurrentLiabilitiesTotal"]) %></li>
-        <li class="list-group-item financials-sub-item">Total Liabilities: <%= currency(value["totalLiab"]) %></li>
-        <li class="list-group-item financials-sub-header">Stockholder's Equity</li>
-        <li class="list-group-item financials-item">Common Stock</li>
-        <li class="list-group-item financials-item">Retained Earnings: <%= currency(value["retainedEarnings"]) %></li>
-        <li class="list-group-item financials-item">Common Stock: <%= currency(value["commonStock"]) %></li>
-        <li class="list-group-item financials-item">Accumulated Other Income: <%= currency(value["accumulatedOtherComprehensiveIncome"]) %></li>
-        <li class="list-group-item financials-item">Total Stockholder's Equity: <%= currency(value["totalStockholderEquity"]) %></li>
-        <li class="list-group-item financials-header">Total Liabilities and Stockholder Equity: <%= currency(value["liabilitiesAndStockholdersEquity"]) %></li>
-      </ul>
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col"><%= @keys[0] %></th>
+            <th scope="col"><%= @keys[1] %></th>
+            <th scope="col"><%= @keys[2] %></th>
+            <th scope="col"><%= @keys[3] %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-active">
+            <th scope="row">Assets</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Current Assets</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Cash</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Cash and cash equivalents:</th>
+            <td class="table-font-color"> <%= currency(@balance_sheet[@interval][@keys[0]]["cash"]) %></td>
+            <td class="table-font-color"> <%= currency(@balance_sheet[@interval][@keys[1]]["cash"]) %></td>
+            <td class="table-font-color"> <%= currency(@balance_sheet[@interval][@keys[2]]["cash"]) %></td>
+            <td class="table-font-color"> <%= currency(@balance_sheet[@interval][@keys[3]]["cash"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Other short-term investments:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["shortTermInvestments"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["shortTermInvestments"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["shortTermInvestments"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["shortTermInvestments"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total cash:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["cashAndShortTermInvestments"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["cashAndShortTermInvestments"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["cashAndShortTermInvestments"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["cashAndShortTermInvestments"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Net receivables:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["netReceivables"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["netReceivables"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["netReceivables"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["netReceivables"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Inventory:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["inventory"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["inventory"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["inventory"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["inventory"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Other Current Assets:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["otherCurrentAssets"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["otherCurrentAssets"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["otherCurrentAssets"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["otherCurrentAssets"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total Current Assets:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["totalCurrentAssets"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["totalCurrentAssets"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["totalCurrentAssets"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["totalCurrentAssets"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Non-Current Assets:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["nonCurrentAssetsTotal"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["nonCurrentAssetsTotal"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["nonCurrentAssetsTotal"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["nonCurrentAssetsTotal"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Property, Plant and Equipment:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["propertyPlantEquipment"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["propertyPlantEquipment"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["propertyPlantEquipment"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["propertyPlantEquipment"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Other Non-Current Assets:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["nonCurrrentAssetsOther"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["nonCurrrentAssetsOther"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["nonCurrrentAssetsOther"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["nonCurrrentAssetsOther"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total Non-Current Assets:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["nonCurrentAssetsTotal"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["nonCurrentAssetsTotal"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["nonCurrentAssetsTotal"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["nonCurrentAssetsTotal"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total Assets:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["totalAssets"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["totalAssets"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["totalAssets"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["totalAssets"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Liabilities and Stockholder's Equity</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Liabilities</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Current Liabilities</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Current Debt:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["shortTermDebt"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["shortTermDebt"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["shortTermDebt"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["shortTermDebt"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Accounts Payable:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["accountsPayable"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["accountsPayable"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["accountsPayable"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["accountsPayable"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Other Current Liabilities:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["otherCurrentLiab"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["otherCurrentLiab"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["otherCurrentLiab"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["otherCurrentLiab"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total Current Liabilities:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["totalCurrentLiabilities"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["totalCurrentLiabilities"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["totalCurrentLiabilities"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["totalCurrentLiabilities"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Non-Current Liabilities</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Long-Term Debt:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["longTermDebt"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["longTermDebt"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["longTermDebt"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["longTermDebt"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Other Non-Current Liabilities:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["nonCurrentLiabilitiesOther"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["nonCurrentLiabilitiesOther"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["nonCurrentLiabilitiesOther"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["nonCurrentLiabilitiesOther"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total Non-Current Liabilities:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["nonCurrentLiabilitiesTotal"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["nonCurrentLiabilitiesTotal"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["nonCurrentLiabilitiesTotal"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["nonCurrentLiabilitiesTotal"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total Liabilities:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["totalLiab"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["totalLiab"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["totalLiab"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["totalLiab"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Stockholders' Equity</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Common Stock</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Retained Earnings:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["retainedEarnings"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["retainedEarnings"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["retainedEarnings"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["retainedEarnings"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Common Stock:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["commonStock"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["commonStock"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["commonStock"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["commonStock"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Accumulated Other Income:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["accumulatedOtherComprehensiveIncome"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["accumulatedOtherComprehensiveIncome"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["accumulatedOtherComprehensiveIncome"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["accumulatedOtherComprehensiveIncome"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total Stockholder's Equity:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["totalStockholderEquity"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["totalStockholderEquity"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["totalStockholderEquity"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["totalStockholderEquity"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total Liabilities and Stockholder Equity:</th>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["liabilitiesAndStockholdersEquity"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["liabilitiesAndStockholdersEquity"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["liabilitiesAndStockholdersEquity"]) %></td>
+            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["liabilitiesAndStockholdersEquity"]) %></td>
+          </tr> %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

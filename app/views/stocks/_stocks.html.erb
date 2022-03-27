@@ -11,7 +11,7 @@
     </thead>
 
     <tbody>
-  <div id="stocks">
+      <div id="stocks">
         <% @stocks.each do |stock| %>
           <tr>
             <td><%= link_to stock.general["Code"], stock_path(stock), data: { turbo: false } %></td>
@@ -19,8 +19,6 @@
             <td><%= stock.general["Sector"] %></td>
             <td><%= stock.general["Industry"] %></td>
             <td><%= number_to_percentage(stock.highlights["ProfitMargin"] * 100, precision: 2) %></td>
-            <td><center><%= link_to 'Edit', edit_stock_path(stock), class: "btn btn-secondary" %></center></td>
-            <td><center><%= link_to 'Delete', stock_path(stock), data: { turbo_method: :delete }, class: "btn btn-danger" %></center></td>
           </tr>
         <% end %>
       </div>

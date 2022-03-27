@@ -2,13 +2,61 @@
   <%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
 
   <div class="card-body">
-    <h3>EBITDA: <%= @highlights["EBITDA"] %></h3>
-    <br/>
-    <h3>PE Ratio: <%= @highlights["PERatio"] %></h3>
-    <br/>
-    <h3>Book Value: <%= @highlights["BookValue"] %></h3>
-    <br/>
-    <p>EPS: <%= @highlights["EarningsShare"] %></p>
-    <br/>
+    <div style="display: flex; justify-content: space-around">
+      <div>
+        <h5>EBITDA: <%= @highlights["EBITDA"] %></h5>
+        <br/>
+        <h5>PE Ratio: <%= @highlights["PERatio"] %></h5>
+        <br/>
+        <h5>Book Value: <%= @highlights["BookValue"] %></h5>
+        <br/>
+        <h5>Revenue (TTM): <%= @highlights["RevenueTTM"] %></h5>
+        <br/>
+        <h5>Profit Margin: <%= @highlights["ProfitMargin"] %></h5>
+        <br/>
+        <h5>Diluted EPS (TTM): <%= @highlights["DilutedEpsTTM"] %></h5>
+        <br/>
+        <h5>Dividend per Share: <%= @highlights["DividendShare"] %></h5>
+        <br/>
+        <h5>Dividend Yield: <%= @highlights["DividendYield"] %></h5>
+        <br/>
+        <h5>EPS: <%= @highlights["EarningsShare"] %></h5>
+        <br/>
+        <h5>Gross Profit (TTM): <%= @highlights["GrossProfitTTM"] %></h5>
+        <br/>
+        <h5>Most Recent Quarter: <%= @highlights["MostRecentQuarter"] %></h5>
+        <br/>
+        <h5>Return on Assets (TTM): <%= @highlights["ReturnOnAssetsTTM"] %></h5>
+        <br/>
+      </div>
+      <div>
+        <h5>Return on Equity (TTM): <%= @highlights["ReturnOnEquityTTM"] %></h5>
+        <br/>
+        <h5>Operating Margin (TTM): <%= @highlights["OperatingMarginTTM"] %></h5>
+        <br/>
+        <h5>Revenue per Share (TTM): <%= @highlights["RevenuePerShareTTM"] %></h5>
+        <br/>
+        <h5>EPS Estimate Next Year: <%= @highlights["EPSEstimateNextYear"] %></h5>
+        <br/>
+        <h5>Market Capitalization: <%= @highlights["MarketCapitalization"] %></h5>
+        <br/>
+        <h5>Market Capitalization Mln: <%= @highlights["MarketCapitalizationMln"] %></h5>
+        <br/>
+        <h5>Wall Street Target Price: <%= @highlights["WallStreetTargetPrice"] %></h5>
+        <br/>
+        <h5>EPS Estimate Current Year: <%= @highlights["EPSEstimateCurrentYear"] %></h5>
+        <br/>
+        <h5>EPS Estimate Next Quarter: <%= @highlights["EPSEstimateNextQuarter"] %></h5>
+        <br/>
+        <h5>EPS Estimate Current Quarter: <%= @highlights["EPSEstimateCurrentQuarter"] %></h5>
+        <br/>
+        <h5>Quarterly Revenue Growth YOY: <%= @highlights["QuarterlyRevenueGrowthYOY"] %></h5>
+        <br/>
+        <h5>Quarterly Earnings Growth YOY: <%= @highlights["QuarterlyEarningsGrowthYOY"] %></h5>
+        <br/>
+      </div>
+    </div>
   </div>
+
+  
 </div>

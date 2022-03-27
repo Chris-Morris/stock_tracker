@@ -2,13 +2,19 @@
   <%= render partial: 'stocks/card_header', locals: {stock: @stock} %>
 
   <div class="card-body">
+    <h3>Forward PE: <%= @valuation["ForwardPE"] %></h3>
+    <br/>
     <h3>Trailing PE: <%= @valuation["TrailingPE"] %></h3>
     <br/>
-    <h3>Forward PE Ratio: <%= @valuation["ForwardPE"] %></h3>
+    <h3>Price/Book (MRQ): <%= @valuation["PriceBookMRQ"] %></h3>
     <br/>
-    <h3>Price/Sales TTM: <%= @valuation["PriceSalesTTM"] %></h3>
+    <h3>Price/Sales (TTM): <%= @valuation["PriceSalesTTM"] %></h3>
     <br/>
-    <h3>Price/Book MRQ: <%= @valuation["PriceBookMRQ"] %></h3>
+    <h3>Enterprise Value: <%= @valuation["EnterpriseValue"] %></h3>
+    <br/>
+    <h3>Enterprise Value EBITDA: <%= @valuation["EnterpriseValueEbitda"] %></h3>
+    <br/>
+    <h3>Enterprise Value Revenue: <%= @valuation["EnterpriseValueRevenue"] %></h3>
     <br/>
   </div>
 </div>

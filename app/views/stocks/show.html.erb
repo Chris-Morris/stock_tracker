@@ -4,15 +4,45 @@
   <%= render partial: 'stocks/card_header', locals: {stock: @stock} %> 
 
   <div class="card-body">
-    <img src=<%= "https://eodhistoricaldata.com/img/logos/US/#{@stock.general["Code"].downcase}.png" %>>
-    <h3>Sector: <%= @stock.general["Sector"] %></h3>
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+      {
+      "symbol": "<%= @stock.general["Code"] %>",
+      "width": "100%",
+      "locale": "en",
+      "colorTheme": "light",
+      "isTransparent": true
+    }
+      </script>
+    </div>
+    <!-- TradingView Widget END -->
+
     <br/>
-    <h3>Industry: <%= @stock.general["Industry"] %></h3>
+    <div style="display: flex; justify-content: space-around;">
+      <h5>Sector: <%= @stock.general["Sector"] %></h5>
+      <br/>
+      <h5>Industry: <%= @stock.general["Industry"] %></h5>
+      <br/>
+      <h5>Subindustry: <%= @stock.general["GicSector"] %></h5>
+      <br/>
+    </div>
     <br/>
-    <h3>Subindustry: <%= @stock.general["GicSector"] %></h3>
+      <p class="card-text">Description: <%= @stock.general["Description"] %></p>
     <br/>
-    <p class="card-text">Description: <%= @stock.general["Description"] %></p>
-    <br/>
+
+    <%= z_score(@stock) %>
+
+    <div class="chart-container" data-controller="show" data-show-ticker-value="<%= @stock.general["Code"] %>">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div id="tradingview_b5f99"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+      
+    </div>
+    <!-- TradingView Widget END -->
   </div>
 </div>
 

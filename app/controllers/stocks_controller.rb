@@ -7,7 +7,7 @@ class StocksController < ApplicationController
 
   # GET /stocks or /stocks.json
   def index
-    @stocks = StockDatum.all
+    @stocks = StockDatum.all.order(:id)
     # @stocks = current_user.stocks
   end
 

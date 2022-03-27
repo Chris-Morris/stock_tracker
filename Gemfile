@@ -51,8 +51,8 @@ gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 # jQuery
 gem 'jquery-rails', '~> 4.4'
 
-# Stock API
-#gem 'stock_quote', '~> 3.0'
+# Chart.js
+gem 'chart-js-rails'
 
 # Rest client
 gem 'rest-client', '~> 2.1'

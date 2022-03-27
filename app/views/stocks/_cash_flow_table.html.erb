@@ -1,48 +1,213 @@
-<div class="col">
+<div class="col-12">
   <div class="card">
     <div class="card-header bg-primary">
-      <strong style="color: white;">Date: <%= key %></strong>
+      <strong style="color: white;">Cash Flow</strong>
     </div>
 
     <div class="card-body">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item financials-header">Assets</li>
-        <li class="list-group-item financials-sub-header">Current Assets</li>
-        <li class="list-group-item financials-item">Cash</li>
-        <li class="list-group-item financials-sub-item">Cash and cash equivalents: <%= currency(value["cash"]) %></li>
-        <li class="list-group-item financials-sub-item">Other short-term investments: <%= currency(value["shortTermInvestments"]) %></li>
-        <li class="list-group-item financials-sub-item">Total cash: <%= currency(value["cashAndShortTermInvestments"]) %></li>
-        <li class="list-group-item financials-item">Net receivables: <%= currency(value["netReceivables"]) %></li>
-        <li class="list-group-item financials-item">Inventory: <%= currency(value["inventory"]) %></li>
-        <li class="list-group-item financials-item">Other Current Assets: <%= currency(value["otherCurrentAssets"]) %></li>
-        <li class="list-group-item financials-item">Total Current Assets: <%= currency(value["totalCurrentAssets"]) %></li>
-        <li class="list-group-item financials-sub-header">Non-Current Assets: <%= currency(value["nonCurrentAssetsTotal"]) %></li>
-        <li class="list-group-item financials-item">Property, Plant and Equipment: <%= currency(value["propertyPlantEquipment"]) %></li>
-        <li class="list-group-item financials-item">Other Non-Current Assets: <%= currency(value["nonCurrrentAssetsOther"]) %></li>
-        <li class="list-group-item financials-item">Total Non-Current Assets: <%= currency(value["nonCurrentAssetsTotal"]) %></li>
-        <li class="list-group-item financials-header">Total Assets: <%= currency(value["totalAssets"]) %></li>
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col"><%= @keys[0] %></th>
+            <th scope="col"><%= @keys[1] %></th>
+            <th scope="col"><%= @keys[2] %></th>
+            <th scope="col"><%= @keys[3] %></th>
+          </tr>
+        </thead>
 
-        <br/>
-        <li class="list-group-item financials-header">Liabilities and Stockholder's Equity</li>
-        <li class="list-group-item financials-sub-header">Liabilities</li>
-        <li class="list-group-item financials-item">Current Liabilities</li>
-        <li class="list-group-item financials-sub-item">Current Debt: <%= currency(value["shortTermDebt"]) %></li>
-        <li class="list-group-item financials-sub-item">Accounts Payable: <%= currency(value["accountsPayable"]) %></li>
-        <li class="list-group-item financials-sub-item">Other Current Liabilities: <%= currency(value["otherCurrentLiab"]) %></li>
-        <li class="list-group-item financials-sub-item">Total Current Liabilities: <%= currency(value["totalCurrentLiabilities"]) %></li>
-        <li class="list-group-item financials-item">Non-Current Liabilities</li>
-        <li class="list-group-item financials-sub-item">Long-Term Debt: <%= currency(value["longTermDebt"]) %></li>
-        <li class="list-group-item financials-sub-item">Other Non-Current Liabilities: <%= currency(value["nonCurrentLiabilitiesOther"]) %></li>
-        <li class="list-group-item financials-sub-item">Total Non-Current Liabilities: <%= currency(value["nonCurrentLiabilitiesTotal"]) %></li>
-        <li class="list-group-item financials-sub-item">Total Liabilities: <%= currency(value["totalLiab"]) %></li>
-        <li class="list-group-item financials-sub-header">Stockholder's Equity</li>
-        <li class="list-group-item financials-item">Common Stock</li>
-        <li class="list-group-item financials-item">Retained Earnings: <%= currency(value["retainedEarnings"]) %></li>
-        <li class="list-group-item financials-item">Common Stock: <%= currency(value["commonStock"]) %></li>
-        <li class="list-group-item financials-item">Accumulated Other Income: <%= currency(value["accumulatedOtherComprehensiveIncome"]) %></li>
-        <li class="list-group-item financials-item">Total Stockholder's Equity: <%= currency(value["totalStockholderEquity"]) %></li>
-        <li class="list-group-item financials-header">Total Liabilities and Stockholder Equity: <%= currency(value["liabilitiesAndStockholdersEquity"]) %></li>
-      </ul>
+        <tbody>
+          <tr>
+            <th scope="row" class="table-font-color">Net Income:</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["netIncome"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["netIncome"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["netIncome"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["netIncome"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Investments:</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["investments"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["investments"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["investments"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["investments"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Change in Cash:</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["changeInCash"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["changeInCash"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["changeInCash"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["changeInCash"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Depreciation</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["depreciation"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["depreciation"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["depreciation"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["depreciation"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Free Cash Flow</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["freeCashFlow"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["freeCashFlow"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["freeCashFlow"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["freeCashFlow"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Dividends Paid</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["dividendsPaid"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["dividendsPaid"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["dividendsPaid"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["dividendsPaid"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Net Borrowings</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["netBorrowings"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["netBorrowings"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["netBorrowings"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["netBorrowings"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Change in Receivables</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["changeReceivables"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["changeReceivables"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["changeReceivables"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["changeReceivables"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Change to Inventory</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["changeToInventory"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["changeToInventory"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["changeToInventory"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["changeToInventory"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Change to Net Income</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["changeToNetincome"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["changeToNetincome"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["changeToNetincome"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["changeToNetincome"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">End Period Cash Flow</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["endPeriodCashFlow"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["endPeriodCashFlow"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["endPeriodCashFlow"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["endPeriodCashFlow"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Other Non-Cash Items</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["otherNonCashItems"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["otherNonCashItems"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["otherNonCashItems"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["otherNonCashItems"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Begin Period Cash Flow:</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["beginPeriodCashFlow"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["beginPeriodCashFlow"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["beginPeriodCashFlow"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["beginPeriodCashFlow"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Capital Expenditures:</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["capitalExpenditures"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["capitalExpenditures"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["capitalExpenditures"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["capitalExpenditures"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Change to Liabilities:</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["changeToLiabilities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["changeToLiabilities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["changeToLiabilities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["changeToLiabilities"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Exchange Rate Changes</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["exchangeRateChanges"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["exchangeRateChanges"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["exchangeRateChanges"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["exchangeRateChanges"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Sale/Purchase of Stock</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["salePurchaseOfStock"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["salePurchaseOfStock"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["salePurchaseOfStock"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["salePurchaseOfStock"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Change in Working Capital</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["changeInWorkingCapital"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["changeInWorkingCapital"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["changeInWorkingCapital"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["changeInWorkingCapital"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Other Operating Cash Flow</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["cashFlowsOtherOperating"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["cashFlowsOtherOperating"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["cashFlowsOtherOperating"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["cashFlowsOtherOperating"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Change to Account Receivables</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["changeToAccountReceivables"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["changeToAccountReceivables"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["changeToAccountReceivables"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["changeToAccountReceivables"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Change to Operating Activities</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["changeToOperatingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["changeToOperatingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["changeToOperatingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["changeToOperatingActivities"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Change to Cash and Cash Equivalents</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["cashAndCashEquivalentsChanges"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["cashAndCashEquivalentsChanges"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["cashAndCashEquivalentsChanges"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["cashAndCashEquivalentsChanges"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total Cash from Financing Activities</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["totalCashFromFinancingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["totalCashFromFinancingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["totalCashFromFinancingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["totalCashFromFinancingActivities"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total Cash from Operating Activities</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["totalCashFromOperatingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["totalCashFromOperatingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["totalCashFromOperatingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["totalCashFromOperatingActivities"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Other Cash Flow from Financing Activities</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["otherCashflowsFromFinancingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["otherCashflowsFromFinancingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["otherCashflowsFromFinancingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["otherCashflowsFromFinancingActivities"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Other Cash Flow from Investing Activities</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["otherCashflowsFromInvestingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["otherCashflowsFromInvestingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["otherCashflowsFromInvestingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["otherCashflowsFromInvestingActivities"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total Cash Flow from Investing Activities</th>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[0]]["totalCashflowsFromInvestingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[1]]["totalCashflowsFromInvestingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[2]]["totalCashflowsFromInvestingActivities"]) %></td>
+            <td class="table-font-color"> <%= currency(@cash_flow[@interval][@keys[3]]["totalCashflowsFromInvestingActivities"]) %></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

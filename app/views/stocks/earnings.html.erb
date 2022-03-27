@@ -1,6 +1,40 @@
 <div class="card">
   <%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
 
+  <% @dates = [] %>
+  <% @epsActual = [] %>
+  <% @epsEstimate = [] %>
+  <% @epsDifference = [] %>
+  <% @epsPercent = [] %>
+
+  <% @counter = 0 %>
+  <% @earnings["History"].reverse_each.with_index do |(key, value), index| %>
+    <% if value["epsActual"] != nil %>
+      <% @dates.push(value["date"]) %>
+      <% @epsActual.push(value["epsActual"]) %>
+      <% @epsEstimate.push(value["epsEstimate"]) %>
+      <% @epsDifference.push(value["epsDifference"]) %>
+      <% @epsPercent.push(value["surprisePercent"]) %>
+      <% @counter += 1 %>
+      <% if @counter >= 4 %>
+        <% break %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <div class="chart-container" data-controller="earnings">
+    <canvas 
+      data-earnings-target="myChart"
+      id="myChart" 
+      width="1200" 
+      height="800" 
+      data-dates="<%= @dates.reverse %>" 
+      data-eps-actual="<%= @epsActual.reverse %>" 
+      data-eps-estimate="<%= @epsEstimate.reverse %>"
+    >
+    </canvas>
+  </div>
+
   <div class="card-body">
     <div class="row row-cols-1 row-cols-md-2 g-4">
       <% @earnings["History"].reverse_each.with_index do |(key, value), index| %>

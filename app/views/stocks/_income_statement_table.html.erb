@@ -1,29 +1,142 @@
-<div class="col">
+<div class="col-12">
   <div class="card">
     <div class="card-header bg-primary">
-      <strong style="color: white;">Date: <%= key %></strong>
+      <strong style="color: white;">Income Statement</strong>
     </div>
 
     <div class="card-body">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item financials-header">Total Revenue: <%= currency(value["totalRevenue"]) %></li>
-        <li class="list-group-item financials-header">Cost of Revenue: <%= currency(value["costOfRevenue"]) %></li>
-        <li class="list-group-item financials-header">Gross Profit: <%= currency(value["grossProfit"]) %></li>
-        <li class="list-group-item financials-header">Operating Expenses: <%= currency(value["operatingExpenses"]) %></li>
-        <li class="list-group-item financials-sub-header">Research & Development: <%= currency(value["researchDevelopment"]) %></li>
-        <li class="list-group-item financials-sub-header">Selling, General & Administrative: <%= currency(value["sellingGeneralAdministrative"]) %></li>
-        <li class="list-group-item financials-sub-header">Total Operating Expenses: <%= currency(value["totalOperatingExpenses"]) %></li>
-        <li class="list-group-item financials-header">Operating Income or Loss: <%= currency(value["operatingIncome"]) %></li>
-        <li class="list-group-item financials-header">Interest Income: <%= currency(value["interestIncome"]) %></li>
-        <li class="list-group-item financials-header">Interest Expense: <%= currency(value["interestExpense"]) %></li>
-        <li class="list-group-item financials-header">Total other income/expenses net: <%= currency(value["totalOtherIncomeExpenseNet"]) %></li>
-        <li class="list-group-item financials-header">Income before tax: <%= currency(value["incomeBeforeTax"]) %></li>
-        <li class="list-group-item financials-header">Income tax expense: <%= currency(value["incomeTaxExpense"]) %></li>
-        <li class="list-group-item financials-header">Income from continuing operations: <%= currency(value["netIncomeFromContinuingOps"]) %></li>
-        <li class="list-group-item financials-header">Net Income: <%= currency(value["netIncome"]) %></li>
-        <li class="list-group-item financials-header">Net Income available to common stockholders: <%= currency(value["netIncomeApplicableToCommonShares"]) %></li>
-        <li class="list-group-item financials-header">EBITDA: <%= currency(value["ebitda"]) %></li>
-      </ul>
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col"><%= @keys[0] %></th>
+            <th scope="col"><%= @keys[1] %></th>
+            <th scope="col"><%= @keys[2] %></th>
+            <th scope="col"><%= @keys[3] %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="table-font-color">Total Revenue:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["totalRevenue"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["totalRevenue"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["totalRevenue"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["totalRevenue"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Cost of Revenue:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["costOfRevenue"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["costOfRevenue"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["costOfRevenue"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["costOfRevenue"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Gross Profit:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["grossProfit"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["grossProfit"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["grossProfit"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["grossProfit"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Operating Expenses:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["operatingExpenses"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["operatingExpenses"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["operatingExpenses"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["operatingExpenses"]) %></td>
+          </tr>
+          <tr>
+            <td scope="row" class="table-font-color" style="padding-left: 15px;">Research & Development:</td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["researchDevelopment"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["researchDevelopment"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["researchDevelopment"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["researchDevelopment"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Selling, General & Administrative:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["sellingGeneralAdministrative"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["sellingGeneralAdministrative"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["sellingGeneralAdministrative"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["sellingGeneralAdministrative"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total Operating Expenses:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["totalOperatingExpenses"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["totalOperatingExpenses"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["totalOperatingExpenses"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["totalOperatingExpenses"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Operating Income or Loss:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["operatingIncome"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["operatingIncome"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["operatingIncome"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["operatingIncome"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Interest Income:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["interestIncome"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["interestIncome"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["interestIncome"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["interestIncome"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Interest Expense:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["interestExpense"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["interestExpense"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["interestExpense"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["interestExpense"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Total other income/expenses net:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["totalOtherIncomeExpenseNet"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["totalOtherIncomeExpenseNet"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["totalOtherIncomeExpenseNet"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["totalOtherIncomeExpenseNet"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Income before tax:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["incomeBeforeTax"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["incomeBeforeTax"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["incomeBeforeTax"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["incomeBeforeTax"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Income tax expense:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["incomeTaxExpense"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["incomeTaxExpense"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["incomeTaxExpense"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["incomeTaxExpense"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Income from continuing operations:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["netIncomeFromContinuingOps"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["netIncomeFromContinuingOps"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["netIncomeFromContinuingOps"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["netIncomeFromContinuingOps"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Net Income:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["netIncome"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["netIncome"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["netIncome"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["netIncome"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">Net Income available to common stockholders:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["netIncomeApplicableToCommonShares"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["netIncomeApplicableToCommonShares"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["netIncomeApplicableToCommonShares"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["netIncomeApplicableToCommonShares"]) %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="table-font-color">EBITDA:</th>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[0]]["ebitda"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[1]]["ebitda"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[2]]["ebitda"]) %></td>
+            <td class="table-font-color"> <%= currency(@income_statement[@interval][@keys[3]]["ebitda"]) %></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
