@@ -4,7 +4,6 @@
   <%= render partial: 'stocks/card_header', locals: {stock: @stock} %> 
 
   <div class="card-body">
-    <!-- TradingView Widget BEGIN -->
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
@@ -17,7 +16,6 @@
     }
       </script>
     </div>
-    <!-- TradingView Widget END -->
 
     <br/>
     <div style="display: flex; justify-content: space-around;">
@@ -31,18 +29,24 @@
     <br/>
       <p class="card-text">Description: <%= @stock.general["Description"] %></p>
     <br/>
+    <br/>
 
-    <%= z_score(@stock) %>
+    <h4>Altman Z-Score</h4>
+    <%= z_score(@stock).round(2) %>
+    <% @left = z_score(@stock) < 4 ? z_score(@stock) : 7 %>
+    <div class="z-score-container">
+      <div class="z-score" style="left: <%= @left * 50 %>px"></div>
+      <div class="z-score-section z-score-red">0 - 1.8</div>
+      <div class="z-score-section z-score-grey">1.9 - 3</div>
+      <div class="z-score-section z-score-green">>3</div>
+    </div>
 
     <div class="chart-container" data-controller="show" data-show-ticker-value="<%= @stock.general["Code"] %>">
-    <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container">
-      <div id="tradingview_b5f99"></div>
-      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
-      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-      
+      <div class="tradingview-widget-container">
+        <div id="tradingview_b5f99"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     </div>
-    <!-- TradingView Widget END -->
   </div>
 </div>
 

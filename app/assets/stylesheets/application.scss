@@ -60,14 +60,77 @@
 }
 
 .chart-container {
-  width: 1200px;
-  height: 800px
+  height: 800px;
+  width: 100%;
+  margin: auto;
 }
 
-h1, h2, h3, h4, h5, h6, p, a {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
   color: #2c3e50;
 }
 
 .table-font-color {
   color: #2c3e50 !important;
+}
+
+.z-score-container {
+  position: absolute;
+  top: 500px;
+  left: 10px;
+  height: 25px;
+  display: flex;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.125);
+  border-width: 1px;
+  border-radius: 3px;
+}
+
+.z-score {
+  position: absolute;
+  top: -5px;
+  width: 5px;
+  height: 35px;
+  background-color: blue;
+  z-index: 10;
+  border-radius: 5px;
+}
+
+.z-score-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.z-score-red {
+  background-color: red;
+  width: 90px;
+}
+
+.z-score-grey {
+  background-color: grey;
+  width: 105px;
+}
+
+.z-score-green {
+  background-color: green;
+  width: 150px;
+}
+
+.ratios-container {
+  width: 100%;
+  background-color: lightcyan;
+}
+
+.ratios-subcontainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: space-around;
 }

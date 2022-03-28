@@ -1,5 +1,5 @@
 class StocksController < ApplicationController
-  before_action :set_stock, only: %i[ show highlights valuation analyst_ratings earnings financials edit update destroy ]
+  before_action :set_stock, only: %i[ show highlights ratios valuation analyst_ratings earnings financials edit update destroy ]
   before_action :authenticate_user!
   before_action :correct_user, only: %i[ edit update destroy ]
 
@@ -22,6 +22,10 @@ class StocksController < ApplicationController
 
   def highlights
     @highlights = @stock.highlights
+  end
+
+  def ratios
+    @data = @stock
   end
 
   def valuation

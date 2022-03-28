@@ -15,7 +15,7 @@ module StocksHelper
     # Setup
     @income_statement = stock.financials["Income_Statement"]
     @balance_sheet = stock.financials["Balance_Sheet"]
-    @interval = "quarterly"
+    @interval = "yearly"
     @keys = stock.financials["Balance_Sheet"][@interval].keys.reverse
     @shares_stats = stock.shares_stats
 

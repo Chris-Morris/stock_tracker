@@ -16,7 +16,7 @@
       <% @epsDifference.push(value["epsDifference"]) %>
       <% @epsPercent.push(value["surprisePercent"]) %>
       <% @counter += 1 %>
-      <% if @counter >= 4 %>
+      <% if @counter >= 13 %>
         <% break %>
       <% end %>
     <% end %>
@@ -38,7 +38,7 @@
   <div class="card-body">
     <div class="row row-cols-1 row-cols-md-2 g-4">
       <% @earnings["History"].reverse_each.with_index do |(key, value), index| %>
-        <% if value["epsActual"] != nil %>
+        <% if value["epsEstimate"] != nil %>
         <div class="col">
           <div class="card">
             <div class="card-header bg-primary">

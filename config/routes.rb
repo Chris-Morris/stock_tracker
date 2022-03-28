@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :scans
   resources :stocks do
     get :highlights, on: :member
+    get :ratios, on: :member
     get :valuation, on: :member
     get :analyst_ratings, on: :member
     get :earnings, on: :member

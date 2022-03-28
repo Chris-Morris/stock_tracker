@@ -1,0 +1,28 @@
+<div class="card">
+  <%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
+
+  <div class="ratios-container">
+    <div class="ratios-subcontainer">
+      <div class="liquidity">
+        <h5>Liquidity</h5>
+        <p>Current Ratio: <%= current_ratio(@stock) %> : 1</p>
+        <p>Acid Test: <%= acid_test(@stock) %> : 1</p>
+      </div>
+      <div class="profitability">
+        <h5>Profitability</h5>
+        <p>Gross Profit: <%= gross_profit(@stock) %>%</p>
+        <p>Mark-Up: <%= mark_up(@stock) %>%</p>
+        <p>Net Profit: <%= net_profit(@stock) %>%</p>
+      </div>
+      <div class="efficiency">
+        <h5>Efficiency</h5>
+      </div>
+      <div class="investment">
+        <h5>Investment</h5>
+        <p>Dividend Yield: <%= dividend_yield(@stock) %>%</p>
+        <p>Earnings Per Share: $<%= earnings_per_share(@stock) %></p>
+        <p>Price to Earnings: <%= price_to_earnings(@stock) %></p>
+      </div>
+    </div>
+  </div>
+</div>
