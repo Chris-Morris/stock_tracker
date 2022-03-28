@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get "economic_calendar", to: "economic_calendar#index"
   devise_for :users
   root "home#index"
 end

@@ -15,6 +15,7 @@
             <th scope="col"><%= @keys[3] %></th>
           </tr>
         </thead>
+        
         <tbody>
           <tr class="table-active">
             <th scope="row">Assets</th>
@@ -235,10 +236,10 @@
           </tr>
           <tr>
             <th scope="row" class="table-font-color">Common Stock:</th>
-            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[0]]["commonStock"]) %></td>
-            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[1]]["commonStock"]) %></td>
-            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[2]]["commonStock"]) %></td>
-            <td class="table-font-color"><%= currency(@balance_sheet[@interval][@keys[3]]["commonStock"]) %></td>
+            <td class="table-font-color"><%= number_with_precision(@balance_sheet[@interval][@keys[0]]["commonStock"], precision: 0, delimiter: ",") %></td>
+            <td class="table-font-color"><%= number_with_precision(@balance_sheet[@interval][@keys[1]]["commonStock"], precision: 0, delimiter: ",") %></td>
+            <td class="table-font-color"><%= number_with_precision(@balance_sheet[@interval][@keys[2]]["commonStock"], precision: 0, delimiter: ",") %></td>
+            <td class="table-font-color"><%= number_with_precision(@balance_sheet[@interval][@keys[3]]["commonStock"], precision: 0, delimiter: ",") %></td>
           </tr>
           <tr>
             <th scope="row" class="table-font-color">Accumulated Other Income:</th>

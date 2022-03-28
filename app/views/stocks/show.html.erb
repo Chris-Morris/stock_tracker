@@ -1,5 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
+<ul class="breadcrumb">
+  <%= link_to "Home", root_path %>
+  <%= link_to "Stocks", stocks_path %>
+  <%= link_to @stock.general["Code"], stock_path(@stock) %>
+</ul>
+
 <div id="<%= dom_id @stock %>" class="card">
   <%= render partial: 'stocks/card_header', locals: {stock: @stock} %> 
 

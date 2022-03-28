@@ -1,0 +1,2 @@
+module EconomicCalendarHelper
+end

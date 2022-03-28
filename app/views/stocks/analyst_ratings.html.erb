@@ -2,19 +2,22 @@
   <%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
 
   <div class="card-body">
-    <h4>Rating: <%= @analyst_ratings["Rating"] %></h4>
-    <br/>
-    <h4>Target Price: $<%= @analyst_ratings["TargetPrice"] %></h4>
-    <br/>
-    <h4>Strong Buy: <%= @analyst_ratings["StrongBuy"] %></h4>
-    <br/>
-    <h4>Buy: <%= @analyst_ratings["Buy"] %></h4>
-    <br/>
-    <h4>Hold: <%= @analyst_ratings["Hold"] %></h4>
-    <br/>
-    <h4>Sell: <%= @analyst_ratings["Sell"] %></h4>
-    <br/>
-    <h4>Strong Sell: <%= @analyst_ratings["StrongSell"] %></h4>
-    <br/>
+    <div style="display: flex; justify-content: space-around;">
+      <h4>Rating: <%= @analyst_ratings["Rating"] %></h4>
+      <br/>
+      <h4>Target Price: $<%= @analyst_ratings["TargetPrice"].round(2) %></h4>
+    </div>
+
+    <div class="chart-container" data-controller="analyst-ratings">
+      <canvas 
+        data-analyst-ratings-target="ratingsChart"
+        id="ratingsChart" 
+        width="100%" 
+        height="100" 
+        data-ratings-labels="[1, 2, 3, 4, 5]" 
+        data-ratings="[<%= @analyst_ratings["StrongSell"] %>, <%= @analyst_ratings["Sell"] %>, <%= @analyst_ratings["Hold"] %>, <%= @analyst_ratings["Buy"] %>, <%= @analyst_ratings["StrongBuy"] %>]" 
+      >
+      </canvas>
+    </div>
   </div>
 </div>
