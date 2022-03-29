@@ -1,10 +1,12 @@
+<%= render partial: 'stocks/stocks_breadcrumb', locals: {stock: @stock} %>
+
 <div class="card">
   <%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
 
   <div class="card-body">
     <div style="display: flex; justify-content: space-around;">
-      <h4>Rating: <%= @analyst_ratings["Rating"] %></h4>
-      <br/>
+      <h4>Rating (mean): <%= @analyst_ratings["Rating"].round(2) %></h4>
+      <h4>Rating (median): <%= median_analyst_rating(@analyst_ratings) %></h4>
       <h4>Target Price: $<%= @analyst_ratings["TargetPrice"].round(2) %></h4>
     </div>
 
