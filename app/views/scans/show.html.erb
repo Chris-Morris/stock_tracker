@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @scan %>
+<div class="card">
+  <%= render @scan %>
 
-<div>
-  <%= link_to "Edit this scan", edit_scan_path(@scan) %> |
-  <%= link_to "Back to scans", scans_path %>
+  <div>
+    <%= link_to "Edit this scan", edit_scan_path(@scan) %> |
+    <%= link_to "Back to scans", scans_path %>
 
-  <%= button_to "Destroy this scan", @scan, method: :delete %>
+    <%= button_to "Destroy this scan", @scan, method: :delete %>
+  </div>
 </div>

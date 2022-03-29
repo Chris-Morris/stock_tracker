@@ -3,6 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["ratingsChart"]
 
+
   connect() {
     const ctx = this.ratingsChartTarget.getContext('2d');
     const ratingsChart = new Chart(ctx, {
@@ -39,6 +40,37 @@ export default class extends Controller {
           display: true,
           labels: {
             fontColor: "#000080",
+          }
+        },
+        plugins: {
+          autocolors: false,
+          annotation: {
+            annotations: {
+              line1: {
+                type: 'line',
+                scaleID: 'x',
+                value: this.data.get("mean") - 1,
+                borderColor: 'rgb(255, 99, 132)',
+                borderWidth: 2,
+                label: {
+                  content: "Mean",
+                  enabled: true,
+                  position: "top"
+                }
+              },
+              line2: {
+                type: 'line',
+                scaleID: 'x',
+                value: this.data.get("median") - 1,
+                borderColor: 'rgb(0, 99, 132)',
+                borderWidth: 2,
+                label: {
+                  content: "Median",
+                  enabled: true,
+                  position: "top"
+                }
+              }
+            }
           }
         }
       }

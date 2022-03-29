@@ -10,7 +10,7 @@
       <h4>Target Price: $<%= @analyst_ratings["TargetPrice"].round(2) %></h4>
     </div>
 
-    <div class="chart-container" data-controller="analyst-ratings">
+    <div class="chart-container" data-controller="analyst-ratings" data-analyst-ratings-mean="<%= @analyst_ratings["Rating"].round(2) %>" data-analyst-ratings-median="<%= median_analyst_rating(@analyst_ratings) %>">
       <canvas 
         data-analyst-ratings-target="ratingsChart"
         id="ratingsChart" 

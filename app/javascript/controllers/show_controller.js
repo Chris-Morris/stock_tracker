@@ -7,7 +7,7 @@ export default class extends Controller {
         new TradingView.widget(
             {
                 "width": "100%",
-                "height": 800,
+                "height": "100%",
                 "symbol": ticker,
                 "interval": "D",
                 "timezone": "Etc/UTC",

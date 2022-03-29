@@ -8,7 +8,7 @@ class StocksController < ApplicationController
   # GET /stocks or /stocks.json
   def index
     @stocks = StockDatum.all.order(:id)
-    # @stocks = current_user.stocks
+    @scans = Scan.where(user_id: current_user.id)
   end
 
   def list
