@@ -5,25 +5,79 @@
 
   <div class="ratios-container">
     <div class="ratios-subcontainer">
-      <div class="liquidity">
-        <h5>Liquidity</h5>
-        <p>Current Ratio: <%= current_ratio(@stock) %> : 1</p>
-        <p>Acid Test: <%= acid_test(@stock) %> : 1</p>
+      <div class="card ratio-card">
+        <div class="card-header bg-primary">
+          <h5 style="color: white;">Liquidity</h5>
+        </div>
+        <div class="card-body">
+          <p>Current Ratio: <%= current_ratio(@stock) %> : 1</p>
+          <p>Acid Test: <%= acid_test(@stock) %> : 1</p>
+          <p>Cash Ratio: <%= acid_test(@stock) %> : 1</p>
+          <p>Operating Cash Ratio: <%= acid_test(@stock) %> : 1</p>
+        </div>
       </div>
-      <div class="profitability">
-        <h5>Profitability</h5>
-        <p>Gross Profit: <%= gross_profit(@stock) %>%</p>
-        <p>Mark-Up: <%= mark_up(@stock) %>%</p>
-        <p>Net Profit: <%= net_profit(@stock) %>%</p>
+      <div class="card ratio-card">  
+        <div class="card-header bg-primary">
+          <h5 style="color: white;">Profitability</h5>
+        </div>
+        <div class="card-body">
+          <p>Gross Profit: <%= gross_profit(@stock) %>%</p>
+          <p>Mark-Up: <%= mark_up(@stock) %>%</p>
+          <p>Net Profit: <%= net_profit(@stock) %>%</p>
+          <p>Earning Power: <%= acid_test(@stock) %> : 1</p>
+          <p>Return on Assets: <%= acid_test(@stock) %> : 1</p>
+          <p>Return on Equity: <%= acid_test(@stock) %> : 1</p>
+        </div>
       </div>
-      <div class="efficiency">
-        <h5>Efficiency</h5>
+      <div class="card ratio-card">
+        <div class="card-header bg-primary">
+          <h5 style="color: white;">Efficiency</h5>
+        </div>
+        <div class="card-body">
+          <p>Inventory Turnover: <%= dividend_yield(@stock) %>%</p>
+          <p>Days Sales Outstanding: <%= dividend_yield(@stock) %>%</p>
+          <p>Receivables Turnover: <%= dividend_yield(@stock) %>%</p>
+          <p>Fixed Assets Turnover: <%= dividend_yield(@stock) %>%</p>
+          <p>Total Assets Turnover: <%= dividend_yield(@stock) %>%</p>
+        </div>
       </div>
-      <div class="investment">
-        <h5>Investment</h5>
-        <p>Dividend Yield: <%= dividend_yield(@stock) %>%</p>
-        <p>Earnings Per Share: $<%= earnings_per_share(@stock) %></p>
-        <p>Price to Earnings: <%= price_to_earnings(@stock) %></p>
+    </div>
+    <div class="ratios-subcontainer">
+      <div class="card ratio-card">
+        <div class="card-header bg-primary">
+          <h5 style="color: white;">Investment</h5>
+        </div>
+        <div class="card-body">
+          <p>Dividend Yield: <%= dividend_yield(@stock) %>%</p>
+          <p>Earnings Per Share: $<%= earnings_per_share(@stock) %></p>
+          <p>Price to Earnings: <%= price_to_earnings(@stock) %></p>
+        </div>
+      </div>
+      <div class="card ratio-card">
+        <div class="card-header bg-primary">
+          <h5 style="color: white;">Gearing</h5>
+        </div>
+        <div class="card-body">
+          <p>Debt Ratio: <%= current_ratio(@stock) %> : 1</p>
+          <p>Debt / Equity Ratio: <%= acid_test(@stock) %> : 1</p>
+          <p>Equity Multiplier: <%= acid_test(@stock) %> : 1</p>
+          <p>Market Debt Ratio: <%= acid_test(@stock) %> : 1</p>
+          <p>Liabilities / Debt Ratio: <%= acid_test(@stock) %> : 1</p>
+          <p>Interest Coverage: <%= acid_test(@stock) %> : 1</p>
+          <p>Debt Service Coverage: <%= acid_test(@stock) %> : 1</p>
+        </div>
+      </div>
+      <div class="card ratio-card">
+        <div class="card-header bg-primary">
+          <h5 style="color: white;">Market Valuation</h5>
+        </div>
+        <div class="card-body">
+          <p>Price / Earnings: <%= current_ratio(@stock) %> : 1</p>
+          <p>Market / Book Value: <%= acid_test(@stock) %> : 1</p>
+          <p>Dividends Per Share: <%= acid_test(@stock) %> : 1</p>
+          <p>Dividends Payout Ratio: <%= acid_test(@stock) %> : 1</p>
+          <p>Dividend Yield Ratio: <%= acid_test(@stock) %> : 1</p>
+        </div>
       </div>
     </div>
   </div>

@@ -19,9 +19,7 @@ export default class extends Controller {
                 "hide_side_toolbar": false,
                 "allow_symbol_change": false,
                 "studies": [
-                    "Stochastic@tv-basicstudies",
-                    "MACD@tv-basicstudies",
-                    "MAExp@tv-basicstudies"
+
                 ],
                 "container_id": "tradingview_b5f99"
             }

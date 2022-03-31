@@ -3,9 +3,9 @@
 <h1>Stocks</h1>
 
 <div class="col-2 mb-4">
-  <label for="cars">Apply Scan:</label>
+  <label for="scans">Apply Scan:</label>
 
-  <select name="cars" id="cars" class="form-control">
+  <select name="scans" id="scans" class="form-control">
     <option value="none">None</option>
     <%= @scans.each do |scan| %>
       <option value="<%= scan.title %>"><%= scan.title %></option>

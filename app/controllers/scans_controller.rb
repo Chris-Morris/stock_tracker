@@ -1,5 +1,6 @@
 class ScansController < ApplicationController
   before_action :set_scan, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /scans or /scans.json
   def index

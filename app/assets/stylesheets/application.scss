@@ -60,7 +60,7 @@
 }
 
 .chart-container {
-  height: 600px;
+  height: 900px;
   width: 100%;
   margin: auto;
 }
@@ -82,7 +82,7 @@ a {
 
 .z-score-container {
   position: absolute;
-  top: 500px;
+  top: 475px;
   left: 10px;
   height: 25px;
   display: flex;
@@ -126,13 +126,18 @@ a {
 
 .ratios-container {
   width: 100%;
-  background-color: lightcyan;
+  padding-top: 20px;
 }
 
 .ratios-subcontainer {
   display: flex;
   justify-content: space-around;
   align-items: space-around;
+  margin-bottom: 20px;
+}
+
+.ratio-card {
+  width: 400px;
 }
 
 .breadcrumb {
