@@ -1,82 +1,90 @@
 <%= render partial: 'stocks/stocks_breadcrumb', locals: {stock: @stock} %>
 
+<% ratio = RatioPresenter.new(@stock) %>
+
 <div class="card">
   <%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
 
   <div class="ratios-container">
     <div class="ratios-subcontainer">
       <div class="card ratio-card">
-        <div class="card-header bg-primary">
+        <div class="card-header bg-primary ratio-card-header">
           <h5 style="color: white;">Liquidity</h5>
+          <p style="color: white; font-size: 1rem;">Liquidity Ratios are used to assess the short-term solvency position of a firm i.e. firm's ability to pay short-term obligations out of current/liquid assets.</p>
         </div>
         <div class="card-body">
-          <p>Current Ratio: <%= current_ratio(@stock) %> : 1</p>
-          <p>Acid Test: <%= acid_test(@stock) %> : 1</p>
-          <p>Cash Ratio: <%= acid_test(@stock) %> : 1</p>
-          <p>Operating Cash Ratio: <%= acid_test(@stock) %> : 1</p>
+          <p>Current Ratio: <%= ratio.current_ratio %></p>
+          <p>Acid Test: <%= ratio.acid_test %></p>
+          <p>Cash Ratio: <%= ratio.cash_ratio %></p>
+          <p>Operating Cash Ratio: <%= ratio.operating_cash_ratio %></p>
         </div>
       </div>
       <div class="card ratio-card">  
-        <div class="card-header bg-primary">
+        <div class="card-header bg-primary ratio-card-header">
           <h5 style="color: white;">Profitability</h5>
+          <p style="color: white; font-size: 1rem;">Profitability Ratios measure the operating efficiency of a firm.</p>
         </div>
         <div class="card-body">
-          <p>Gross Profit: <%= gross_profit(@stock) %>%</p>
-          <p>Mark-Up: <%= mark_up(@stock) %>%</p>
-          <p>Net Profit: <%= net_profit(@stock) %>%</p>
-          <p>Earning Power: <%= acid_test(@stock) %> : 1</p>
-          <p>Return on Assets: <%= acid_test(@stock) %> : 1</p>
-          <p>Return on Equity: <%= acid_test(@stock) %> : 1</p>
+          <p>Gross Profit: <%= ratio.gross_profit %>%</p>
+          <p>Mark-Up: <%= ratio.mark_up %>%</p>
+          <p>Net Profit: <%= ratio.net_profit %>%</p>
+          <p>Earning Power: <%= ratio.earning_power %></p>
+          <p>Return on Assets: <%= ratio.return_on_assets %>%</p>
+          <p>Return on Equity: <%= ratio.return_on_equity %>%</p>
         </div>
       </div>
       <div class="card ratio-card">
-        <div class="card-header bg-primary">
+        <div class="card-header bg-primary ratio-card-header">
           <h5 style="color: white;">Efficiency</h5>
+          <p style="color: white; font-size: 1rem;">Efficiency Ratios indicate the speed with which assets are being converted into sales.</p>
         </div>
         <div class="card-body">
-          <p>Inventory Turnover: <%= dividend_yield(@stock) %>%</p>
-          <p>Days Sales Outstanding: <%= dividend_yield(@stock) %>%</p>
-          <p>Receivables Turnover: <%= dividend_yield(@stock) %>%</p>
-          <p>Fixed Assets Turnover: <%= dividend_yield(@stock) %>%</p>
-          <p>Total Assets Turnover: <%= dividend_yield(@stock) %>%</p>
+          <p>Inventory Turnover: <%= ratio.dividend_yield %>%</p>
+          <p>Days Sales Outstanding: <%= ratio.dividend_yield %>%</p>
+          <p>Receivables Turnover: <%= ratio.dividend_yield %>%</p>
+          <p>Fixed Assets Turnover: <%= ratio.dividend_yield %>%</p>
+          <p>Total Assets Turnover: <%= ratio.dividend_yield %>%</p>
         </div>
       </div>
     </div>
     <div class="ratios-subcontainer">
       <div class="card ratio-card">
-        <div class="card-header bg-primary">
+        <div class="card-header bg-primary ratio-card-header">
           <h5 style="color: white;">Investment</h5>
+          <p style="color: white; font-size: 1rem;">Investment Ratios indicate the...</p>
         </div>
         <div class="card-body">
-          <p>Dividend Yield: <%= dividend_yield(@stock) %>%</p>
-          <p>Earnings Per Share: $<%= earnings_per_share(@stock) %></p>
-          <p>Price to Earnings: <%= price_to_earnings(@stock) %></p>
+          <p>Dividend Yield: <%= ratio.dividend_yield %>%</p>
+          <p>Earnings Per Share: $<%= ratio.earnings_per_share %></p>
+          <p>Price to Earnings: <%= ratio.price_to_earnings %></p>
         </div>
       </div>
       <div class="card ratio-card">
-        <div class="card-header bg-primary">
-          <h5 style="color: white;">Gearing</h5>
+        <div class="card-header bg-primary ratio-card-header">
+          <h5 style="color: white;">Debt</h5>
+          <p class="ratio-card-desc" style="color: white; font-size: 1rem;">Debt Ratios indicate the extent to which debt financing is used by a firm. These ratios measure long-term solvency of a firm.</p>
         </div>
         <div class="card-body">
-          <p style="font-size: 1.4rem;">Debt Ratio: <%= current_ratio(@stock) %> : 1</p>
-          <p>Debt / Equity Ratio: <%= acid_test(@stock) %> : 1</p>
-          <p>Equity Multiplier: <%= acid_test(@stock) %> : 1</p>
-          <p>Market Debt Ratio: <%= acid_test(@stock) %> : 1</p>
-          <p>Liabilities / Debt Ratio: <%= acid_test(@stock) %> : 1</p>
-          <p>Interest Coverage: <%= acid_test(@stock) %> : 1</p>
-          <p>Debt Service Coverage: <%= acid_test(@stock) %> : 1</p>
+          <p style="font-size: 1.4rem;">Debt Ratio: <%= ratio.debt_ratio %></p>
+          <p>Debt / Equity Ratio: <%= ratio.debt_equity_ratio %></p>
+          <p>Equity Multiplier: <%= ratio.equity_multiplier %></p>
+          <p>Market Debt Ratio: <%= acid_test(@stock) %></p>
+          <p>Liabilities / Debt Ratio: <%= ratio.liabilities_assets_ratio %></p>
+          <p>Interest Coverage: <%= ratio.interest_coverage_ratio %></p>
+          <p>Debt Service Coverage: <%= acid_test(@stock) %></p>
         </div>
       </div>
       <div class="card ratio-card">
-        <div class="card-header bg-primary">
+        <div class="card-header bg-primary ratio-card-header">
           <h5 style="color: white;">Market Valuation</h5>
+          <p style="color: white; font-size: 1rem;">Market Values Ratios represent the ratios that relate the firm's stock price to its earnings and Stock Value per Share.</p>
         </div>
         <div class="card-body">
-          <p>Price / Earnings: <%= current_ratio(@stock) %> : 1</p>
-          <p>Market / Book Value: <%= acid_test(@stock) %> : 1</p>
-          <p>Dividends Per Share: <%= acid_test(@stock) %> : 1</p>
-          <p>Dividends Payout Ratio: <%= acid_test(@stock) %> : 1</p>
-          <p>Dividend Yield Ratio: <%= acid_test(@stock) %> : 1</p>
+          <p>Price / Earnings: <%= ratio.price_to_earnings %></p>
+          <p>Market / Book Value: <%= acid_test(@stock) %></p>
+          <p>Dividends Per Share: <%= acid_test(@stock) %></p>
+          <p>Dividends Payout Ratio: <%= acid_test(@stock) %></p>
+          <p>Dividend Yield Ratio: <%= acid_test(@stock) %></p>
         </div>
       </div>
     </div>
