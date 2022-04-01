@@ -3,21 +3,21 @@ class RatioPresenter
     @stock = stock
 
     # Balance Sheet Setup
-    @yearly_balance_sheet_keys = stock.financials["Balance_Sheet"]["yearly"].keys.reverse
+    @yearly_balance_sheet_keys = @stock.financials["Balance_Sheet"]["yearly"].keys.reverse
     @yearly_balance_sheet = @stock.financials["Balance_Sheet"]["yearly"][@yearly_balance_sheet_keys[0]]
-    @quarter_balance_sheet_keys = stock.financials["Balance_Sheet"]["quarterly"].keys.reverse
+    @quarter_balance_sheet_keys = @stock.financials["Balance_Sheet"]["quarterly"].keys.reverse
     @quarter_balance_sheet = @stock.financials["Balance_Sheet"]["quarterly"][@quarter_balance_sheet_keys[0]]
 
     # Cash Flow Setup
-    @yearly_cash_flow_keys = stock.financials["Cash_Flow"]["yearly"].keys.reverse
+    @yearly_cash_flow_keys = @stock.financials["Cash_Flow"]["yearly"].keys.reverse
     @yearly_cash_flow = @stock.financials["Cash_Flow"]["yearly"][@yearly_cash_flow_keys[0]]
-    @quarter_cash_flow_keys = stock.financials["Cash_Flow"]["quarterly"].keys.reverse
+    @quarter_cash_flow_keys = @stock.financials["Cash_Flow"]["quarterly"].keys.reverse
     @quarter_cash_flow = @stock.financials["Cash_Flow"]["quarterly"][@quarter_cash_flow_keys[0]]
 
     # Income Statement Setup
-    @yearly_income_statement_keys = stock.financials["Income_Statement"]["yearly"].keys.reverse
+    @yearly_income_statement_keys = @stock.financials["Income_Statement"]["yearly"].keys.reverse
     @yearly_income_statement = @stock.financials["Income_Statement"]["yearly"][@yearly_income_statement_keys[0]]
-    @quarter_income_statement_keys = stock.financials["Income_Statement"]["quarterly"].keys.reverse
+    @quarter_income_statement_keys = @stock.financials["Income_Statement"]["quarterly"].keys.reverse
     @quarter_income_statement = @stock.financials["Income_Statement"]["quarterly"][@quarter_income_statement_keys[0]]
     
     @api_key = '5d1261a6941b19.92876445'
@@ -56,15 +56,15 @@ class RatioPresenter
   end
 
   def net_profit
-    ((@yearly_income_statement["incomeBeforeTax"].to_f / @yearly_income_statement["totalRevenue"].to_f) * 100).round(2)
+    ((@yearly_income_statement["netIncome"].to_f / @yearly_income_statement["totalRevenue"].to_f) * 100).round(2)
   end
 
   def earning_power
-    (@yearly_income_statement["operatingIncome"].to_f / @yearly_balance_sheet["totalCurrentAssets"].to_f).round(2)
+    (@yearly_income_statement["operatingIncome"].to_f / @yearly_balance_sheet["totalAssets"].to_f).round(2)
   end
 
   def return_on_assets
-    ((@yearly_income_statement["netIncome"].to_f / @yearly_balance_sheet["totalCurrentAssets"].to_f) * 100).round(2)
+    ((@yearly_income_statement["netIncome"].to_f / @yearly_balance_sheet["totalAssets"].to_f) * 100).round(2)
   end
 
   def return_on_equity
