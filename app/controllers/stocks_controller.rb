@@ -8,12 +8,8 @@ class StocksController < ApplicationController
   # GET /stocks or /stocks.json
   def index
     @stocks = StockDatum.all.order(:id)
-    @scans = Scan.where(user_id: current_user.id)
-  end
-
-  def list
-    @stocks = StockDatum.order("#{params[:column]} asc")
-    render(partial: 'stocks', locals: { stocks: @stocks })
+    @scans = Scan.all
+    @scans = @scans.search(params[:scan]) if params[:scan].present?
   end
 
   # GET /stocks/1 or /stocks/1.json

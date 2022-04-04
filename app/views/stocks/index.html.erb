@@ -4,14 +4,15 @@
 
 <div class="col-2 mb-4">
   <label for="scans">Apply Scan:</label>
-
-  <select name="scans" id="scans" class="form-control">
-    <option value="none">None</option>
-    <%= @scans.each do |scan| %>
-      <option value="<%= scan.title %>"><%= scan.title %></option>
-    <% end %>
-  </select>
+  <%= form_with url: "", method: :get do |form| %>
+    <% scans_array = Scan.where(user_id: current_user.id).map { |scan| [scan.title, scan.id] } %>
+    <% scans_array.unshift(["Please select...", "0"]) %>
+    <%= form.select :scan, options_for_select(scans_array), {}, { onchange: "this.form.requestSubmit()" } %>
+  <% end %>
+  <%=  %>
 </div>
+
+<%= @scans %>
  
 <div>
   <%= render "stocks", stocks: @stocks %>
