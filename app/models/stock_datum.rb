@@ -7,11 +7,13 @@ class StockDatum < ApplicationRecord
     ret_array = []
     @stocks.each do |stock|
         ratios = RatioCalculator.new(stock)
-        if ratios.current_ratio >= @scan.quarterly_earnings
-            ret_array.push(stock)
-        end
+        ratings = AnalystRatings.new(stock)
+        next if ratios.return_on_equity <= @scan.quarterly_earnings
+        next if stock.highlights["ProfitMargin"] * 100 <= @scan.profit_margin
+        # next if ratings.median_analyst_rating >= @scan.quarterly_earnings
+        ret_array.push(stock)
     end
-    
+
     return ret_array
   end
 end

@@ -71,6 +71,6 @@ class ScansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def scan_params
-      params.require(:scan).permit(:title, :description, :quarterly_earnings, :yearly_earnings, :user_id)
+      params.require(:scan).permit(:title, :description, :profit_margin, :quarterly_earnings, :yearly_earnings, :user_id)
     end
 end
