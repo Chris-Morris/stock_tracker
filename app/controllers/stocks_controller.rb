@@ -8,8 +8,7 @@ class StocksController < ApplicationController
   # GET /stocks or /stocks.json
   def index
     @stocks = StockDatum.all.order(:id)
-    @scans = Scan.all
-    @scans = @scans.search(params[:scan]) if params[:scan].present?
+    @stocks = @stocks.search(params[:scan]) if params[:scan].present?
   end
 
   # GET /stocks/1 or /stocks/1.json

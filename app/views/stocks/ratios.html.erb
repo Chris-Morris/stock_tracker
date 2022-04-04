@@ -2,9 +2,6 @@
 
 <% ratio = RatioCalculator.new(@stock) %>
 
-<%= ratio.show_scans %>
-<%= ratio.show_stock %>
-
 <div class="card">
   <%= render partial: 'stocks/card_header', locals: {stock: @stock} %>  
 

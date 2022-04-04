@@ -1,8 +1,6 @@
 class RatioCalculator
   def initialize(stock)
     @stock = stock
-    @scans = Scan.all
-    @stocks = StockDatum.all.order(:id)
 
     # Balance Sheet Setup
     @yearly_balance_sheet_keys = @stock.financials["Balance_Sheet"]["yearly"].keys.reverse
@@ -23,14 +21,6 @@ class RatioCalculator
     @quarter_income_statement = @stock.financials["Income_Statement"]["quarterly"][@quarter_income_statement_keys[0]]
     
     @api_key = '5d1261a6941b19.92876445'
-  end
-
-  def show_scans
-    @scans[0].id
-  end
-
-  def show_stock
-    @stocks[0].general["Code"]
   end
 
   # ---------------- Liquidity Ratios ----------------
