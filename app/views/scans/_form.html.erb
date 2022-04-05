@@ -1,5 +1,5 @@
-<%= form_with(model: scan) do |form| %>
-  <div class="form-group">
+<div class="col-2 mb-4">
+  <%= form_with(model: scan) do |form| %>
     <% if scan.errors.any? %>
       <div style="color: red">
         <h2><%= pluralize(scan.errors.count, "error") %> prohibited this scan from being saved:</h2>
@@ -12,28 +12,246 @@
       </div>
     <% end %>
 
-    <div>
-      <%= form.label :title, style: "display: block" %>
-      <%= form.text_field :title, class: "form-control" %>
-    </div>
+      <div>
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
 
-    <div>
-      <%= form.label :profit_margin, style: "display: block" %>
-      <%= form.number_field :profit_margin, class: "form-control" %>
-    </div>
+      <div class="card">
+        <div class="card-header bg-primary">
+          <h3 style="color: white;">General</h3>
+        </div>
+        <div class="card-body">
+          <div>
+            <%= form.label :sector, style: "display: block" %>
+            <%= form.text_field :sector, class: "form-control" %>
+          </div>
+        
+          <div>
+            <%= form.label :industry, style: "display: block" %>
+            <%= form.text_field :industry, class: "form-control" %>
+          </div>
+        </div>
+      </div>
 
-    <div>
-      <%= form.label :quarterly_earnings, style: "display: block" %>
-      <%= form.number_field :quarterly_earnings, class: "form-control" %>
-    </div>
+      <div class="card">
+        <div class="card-header bg-primary">
+          <h3 style="color: white;">Profitability</h3>
+        </div>
+        <div class="card-body">
+          <div>
+            <%= form.label :gross_profit, style: "display: block" %>
+            <%= form.number_field :gross_profit, class: "form-control" %>
+          </div>
 
-    <div>
-      <%= form.label :yearly_earnings, style: "display: block" %>
-      <%= form.number_field :yearly_earnings, class: "form-control" %>
-    </div>
+          <div>
+            <%= form.label :net_profit, style: "display: block" %>
+            <%= form.number_field :net_profit, class: "form-control" %>
+          </div>
 
-    <div>
-      <%= form.submit %>
-    </div>
-  </div>
-<% end %>
+          <div>
+            <%= form.label :earning_power, style: "display: block" %>
+            <%= form.number_field :earning_power, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :return_on_assets, style: "display: block" %>
+            <%= form.number_field :return_on_assets, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :return_on_equity, style: "display: block" %>
+            <%= form.number_field :return_on_equity, class: "form-control" %>
+          </div>
+        </div>  
+      </div>
+
+      <div class="card">
+        <div class="card-header bg-primary">
+          <h3 style="color: white;">Leverage</h3>
+        </div>
+        <div class="card-body">
+          <div>
+            <%= form.label :debt_ratio, style: "display: block" %>
+            <%= form.number_field :debt_ratio, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :debt_to_equity, style: "display: block" %>
+            <%= form.number_field :debt_to_equity, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :equity_multiplier, style: "display: block" %>
+            <%= form.number_field :equity_multiplier, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :market_to_debt, style: "display: block" %>
+            <%= form.number_field :market_to_debt, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :liabilities_to_assets, style: "display: block" %>
+            <%= form.number_field :liabilities_to_assets, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :interest_coverage, style: "display: block" %>
+            <%= form.number_field :interest_coverage, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :debt_service_coverage, style: "display: block" %>
+            <%= form.number_field :debt_service_coverage, class: "form-control" %>
+          </div>
+        </div>  
+      </div>  
+
+      <div class="card">
+        <div class="card-header bg-primary">
+          <h3 style="color: white;">Liquidity</h3>
+        </div>
+        <div class="card-body">
+          <div>
+            <%= form.label :quarterly_earnings, style: "display: block" %>
+            <%= form.number_field :quarterly_earnings, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :yearly_earnings, style: "display: block" %>
+            <%= form.number_field :yearly_earnings, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header bg-primary">
+          <h3 style="color: white;">Analyst Ratings</h3>
+        </div>
+        <div class="card-body">
+          <div>
+            <%= form.label :ratings_mean, style: "display: block" %>
+            <%= form.number_field :ratings_mean, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :ratings_median, style: "display: block" %>
+            <%= form.number_field :ratings_median, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header bg-primary">
+          <h3 style="color: white;">Liquidity</h3>
+        </div>
+        <div class="card-body">
+          <div>
+            <%= form.label :current_ratio, style: "display: block" %>
+            <%= form.number_field :current_ratio, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :acid_test, style: "display: block" %>
+            <%= form.number_field :acid_test, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :cash_ratio, style: "display: block" %>
+            <%= form.number_field :cash_ratio, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :operating_cash_ratio, style: "display: block" %>
+            <%= form.number_field :operating_cash_ratio, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header bg-primary">
+          <h3 style="color: white;">Asset Management</h3>
+        </div>
+        <div class="card-body">
+          <div>
+            <%= form.label :inventory_turnover, style: "display: block" %>
+            <%= form.number_field :inventory_turnover, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :days_sales_outstanding, style: "display: block" %>
+            <%= form.number_field :days_sales_outstanding, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :receivables_turnover, style: "display: block" %>
+            <%= form.number_field :receivables_turnover, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :fixed_assets_turnover, style: "display: block" %>
+            <%= form.number_field :fixed_assets_turnover, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :total_assets_turnover, style: "display: block" %>
+            <%= form.number_field :total_assets_turnover, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header bg-primary">
+          <h3 style="color: white;">Market Value</h3>
+        </div>
+        <div class="card-body">
+          <div>
+            <%= form.label :price_to_earnings, style: "display: block" %>
+            <%= form.number_field :price_to_earnings, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :market_to_book_value, style: "display: block" %>
+            <%= form.number_field :market_to_book_value, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :dividends_per_share, style: "display: block" %>
+            <%= form.number_field :dividends_per_share, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :dividend_payout, style: "display: block" %>
+            <%= form.number_field :dividend_payout, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :dividend_yield, style: "display: block" %>
+            <%= form.number_field :dividend_yield, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header bg-primary">
+          <h3 style="color: white;">Altman Z-Score and Piotroski F-Index</h3>
+        </div>
+        <div class="card-body">
+          <div>
+            <%= form.label :altman_z_score, style: "display: block" %>
+            <%= form.number_field :altman_z_score, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= form.label :piotroski_f_index, style: "display: block" %>
+            <%= form.number_field :piotroski_f_index, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <%= form.submit %>
+      </div>
+  <% end %>
+</div>

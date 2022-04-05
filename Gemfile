@@ -43,16 +43,19 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
+
+# PopperJS
+#gem 'popper_js', '~> 2.9', '>= 2.9.3'
 
 # Bootstrap
-gem 'bootstrap', '~> 5.1', '>= 5.1.3'
+#gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 
 # jQuery
-gem 'jquery-rails', '~> 4.4'
+#gem 'jquery-rails', '~> 4.4'
 
 # Chart.js
-gem 'chart-js-rails'
+#gem 'chart-js-rails'
 
 # Rest client
 gem 'rest-client', '~> 2.1'

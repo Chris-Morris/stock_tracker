@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_04_153517) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_05_141002) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,7 +22,39 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_153517) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.decimal "profit_margin", default: "0.0"
+    t.decimal "profit_margin"
+    t.string "sector"
+    t.string "industry"
+    t.decimal "gross_profit"
+    t.decimal "net_profit"
+    t.decimal "earning_power"
+    t.decimal "return_on_assets"
+    t.decimal "return_on_equity"
+    t.decimal "debt_ratio"
+    t.decimal "debt_to_equity"
+    t.decimal "equity_multiplier"
+    t.decimal "market_to_debt"
+    t.decimal "liabilities_to_assets"
+    t.decimal "interest_coverage"
+    t.decimal "debt_service_coverage"
+    t.decimal "ratings_mean"
+    t.decimal "ratings_median"
+    t.decimal "current_ratio"
+    t.decimal "acid_test"
+    t.decimal "cash_ratio"
+    t.decimal "operating_cash_ratio"
+    t.decimal "inventory_turnover"
+    t.decimal "days_sales_outstanding"
+    t.decimal "receivables_turnover"
+    t.decimal "fixed_assets_turnover"
+    t.decimal "total_assets_turnover"
+    t.decimal "price_to_earnings"
+    t.decimal "market_to_book_value"
+    t.decimal "dividends_per_share"
+    t.decimal "dividend_payout"
+    t.decimal "dividend_yield"
+    t.decimal "altman_z_score"
+    t.decimal "piotroski_f_score"
   end
 
   create_table "stock_data", id: false, force: :cascade do |t|

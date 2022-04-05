@@ -71,6 +71,6 @@ class ScansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def scan_params
-      params.require(:scan).permit(:title, :description, :profit_margin, :quarterly_earnings, :yearly_earnings, :user_id)
+      params.require(:scan).permit(:title, :description, :profit_margin, :quarterly_earnings, :yearly_earnings, :user_id, :sector, :industry, :gross_profit, :net_profit, :earning_power, :return_on_assets, :return_on_equity, :debt_ratio, :debt_to_equity, :equity_multiplier, :market_to_debt, :liabilities_to_assets, :interest_coverage, :debt_service_coverage, :ratings_mean, :ratings_median, :current_ratio, :acid_test, :cash_ratio, :operating_cash_ratio, :inventory_turnover, :days_sales_outstanding, :receivables_turnover, :fixed_assets_turnover, :total_assets_turnover, :price_to_earnings, :market_to_book_value, :dividends_per_share, :dividend_payout, :dividend_yield, :altman_z_score, :piotroski_f_score)
     end
 end

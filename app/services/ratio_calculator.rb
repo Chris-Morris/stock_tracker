@@ -76,7 +76,7 @@ class RatioCalculator
     (@yearly_balance_sheet["shortLongTermDebtTotal"].to_f / @yearly_balance_sheet["totalAssets"].to_f).round(2)
   end
 
-  def debt_equity_ratio
+  def debt_to_equity
     (@yearly_balance_sheet["shortLongTermDebtTotal"].to_f / @yearly_balance_sheet["totalStockholderEquity"].to_f).round(2)
   end
 
@@ -84,19 +84,19 @@ class RatioCalculator
     (@yearly_balance_sheet["totalAssets"].to_f / @yearly_balance_sheet["totalStockholderEquity"].to_f).round(2)
   end
 
-  def market_debt_ratio
+  def market_to_debt
     nil
   end
 
-  def liabilities_assets_ratio
+  def liabilities_assets
     (@yearly_balance_sheet["totalAssets"].to_f / @yearly_balance_sheet["totalLiab"].to_f).round(2)
   end
 
-  def interest_coverage_ratio
+  def interest_coverage
     (@yearly_income_statement["operatingIncome"].to_f / @yearly_income_statement["interestExpense"].to_f).round(2)
   end
 
-  def debt_service_coverage_ratio
+  def debt_service_coverage
     nil
   end
 
@@ -129,7 +129,7 @@ class RatioCalculator
   end
 
   # ---------------- Efficiency Ratios ----------------
-  def inventory_turnover_ratio
+  def inventory_turnover
     nil
   end
 
@@ -137,15 +137,15 @@ class RatioCalculator
     nil
   end
 
-  def receivables_turnover_ratio
+  def receivables_turnover
     nil
   end
 
-  def fixed_assets_turnover_ratio
+  def fixed_assets_turnover
     nil
   end
 
-  def total_assets_turnover_ratio
+  def total_assets_turnover
     nil
   end
 end

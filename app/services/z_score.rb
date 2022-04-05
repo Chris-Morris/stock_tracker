@@ -1,16 +1,16 @@
 class ZScore
-  def initializer(stock)
+  def initialize(stock)
     @stock = stock
   end
 
-  def z_score(stock)
+  def z_score
 
     # Setup
-    income_statement = stock.financials["Income_Statement"]
-    balance_sheet = stock.financials["Balance_Sheet"]
+    income_statement = @stock.financials["Income_Statement"]
+    balance_sheet = @stock.financials["Balance_Sheet"]
     interval = "yearly"
-    keys = stock.financials["Balance_Sheet"][interval].keys.reverse
-    shares_stats = stock.shares_stats
+    keys = @stock.financials["Balance_Sheet"][interval].keys.reverse
+    shares_stats = @stock.shares_stats
 
     # Woking Capital
     working_capital = balance_sheet[interval][keys[0]]["totalCurrentAssets"].to_f / balance_sheet[interval][keys[0]]["totalCurrentLiabilities"].to_f
@@ -34,7 +34,7 @@ class ZScore
     total_revenue = income_statement[interval][keys[0]]["totalRevenue"].to_f
 
     # Current Price
-    ticker = stock.general["Code"]
+    ticker = @stock.general["Code"]
     url = "https://eodhistoricaldata.com/api/eod/#{ticker}.US?api_token=5d1261a6941b19.92876445&fmt=json&order=d"
     response = RestClient.get(url)
     current_price = JSON.parse(response)[0]["close"]

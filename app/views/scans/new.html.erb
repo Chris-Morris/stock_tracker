@@ -1,9 +1,15 @@
-<h1>New scan</h1>
+<div class="card">
+  <div class="card-header bg-primary">
+    <h1 style="color: white;">New scan</h1>
+  </div>
 
-<%= render "form", scan: @scan %>
+  <div class="card-body">
+    <%= render "form", scan: @scan %>
 
-<br>
+    <br>
 
-<div>
-  <%= link_to "Back to scans", scans_path %>
+    <div>
+      <%= link_to "Back to scans", scans_path %>
+    </div>
+  </div>
 </div>

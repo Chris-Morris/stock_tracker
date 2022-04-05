@@ -283,9 +283,11 @@ DEPENDENCIES
   jbuilder
   jquery-rails (~> 4.4)
   pg (~> 1.1)
+  popper_js (~> 2.9, >= 2.9.3)
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.3)
   rest-client (~> 2.1)
+  sassc-rails
   selenium-webdriver
   sprockets-rails
   stimulus-rails
