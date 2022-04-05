@@ -85,7 +85,11 @@ class StockDatum < ApplicationRecord
 
         # Analyst Ratings
         if @scan.ratings_mean?
-          next if ratios.ratings_mean < @scan.ratings_mean
+          begin
+            next if stock.analyst_ratings["Rating"] < @scan.ratings_mean
+          rescue
+            puts stock.id
+          end
         end
 
         if @scan.ratings_median?
