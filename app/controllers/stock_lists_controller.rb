@@ -1,4 +1,4 @@
-class stock_listsController < ApplicationController
+class StockListsController < ApplicationController
   before_action :set_list, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
 
