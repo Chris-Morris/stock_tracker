@@ -23,6 +23,11 @@ class RatioCalculator
     @api_key = '5d1261a6941b19.92876445'
   end
 
+  # ---------------- General Ratios ----------------
+  def operational_gearing
+    nil
+  end
+
   # ---------------- Liquidity Ratios ----------------
   def current_ratio
     (@yearly_balance_sheet["totalCurrentAssets"].to_f / @yearly_balance_sheet["totalCurrentLiabilities"].to_f).round(2)
@@ -88,7 +93,7 @@ class RatioCalculator
     nil
   end
 
-  def liabilities_assets
+  def liabilities_to_assets
     (@yearly_balance_sheet["totalAssets"].to_f / @yearly_balance_sheet["totalLiab"].to_f).round(2)
   end
 
@@ -122,10 +127,6 @@ class RatioCalculator
     
     # Current Price
     return (@current_price / @stock.highlights["EarningsShare"].to_f).round(2)
-  end
-
-  def capital_gearing
-    nil
   end
 
   # ---------------- Efficiency Ratios ----------------
