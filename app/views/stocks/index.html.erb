@@ -2,16 +2,24 @@
 
 <h1>Stocks</h1>
 
-<div class="col-2 mb-4">
-  <label for="scans">Apply Scan:</label>
-  <%= form_with url: "", method: :get do |form| %>
-    <% scans_array = Scan.where(user_id: current_user.id).map { |scan| [scan.title, scan.id] } %>
-    <% scans_array.unshift(["Please select...", "0"]) %>
-    <%= form.select :scan, options_for_select(scans_array), {}, { onchange: "this.form.requestSubmit()" } %>
-  <% end %>
-  <%=  %>
-</div>
- 
-<div>
-  <%= render "stocks", stocks: @stocks %>
+<div data-controller="stocks" >
+
+  <div id="loader"></div> 
+
+  <div id="stocksContainer">
+    <div class="col-2 mb-4">
+      <% if user_signed_in? %>
+        <label for="scans">Apply Scan:</label>
+        <%= form_with url: "", method: :get do |form| %>
+          <% scans_array = Scan.where(user_id: current_user.id).map { |scan| [scan.title, scan.id] } %>
+          <% scans_array.unshift(["Please select...", "0"]) %>
+          <%= form.select :scan, options_for_select(scans_array, params[:scan]), {}, {} %>
+        <% end %>
+
+        <%= link_to "Run Scan", "#", data: { controller: "stocks", stocks_url_value: stocks_path, action: "click->stocks#runScan" } %>
+      <% end %>
+    </div>
+
+    <%= render "stocks", stocks: @stocks %>
+  </div>
 </div>

@@ -66,11 +66,11 @@
         </div>
         <div class="card-body">
           <p style="font-size: 1.4rem;">Debt Ratio: <%= ratio.debt_ratio %></p>
-          <p>Debt / Equity Ratio: <%= ratio.debt_equity_ratio %></p>
+          <p>Debt / Equity Ratio: <%= ratio.debt_to_equity %></p>
           <p>Equity Multiplier: <%= ratio.equity_multiplier %></p>
           <p>Market Debt Ratio: <%= acid_test(@stock) %></p>
-          <p>Liabilities / Debt Ratio: <%= ratio.liabilities_assets_ratio %></p>
-          <p>Interest Coverage: <%= ratio.interest_coverage_ratio %></p>
+          <p>Liabilities / Debt Ratio: <%= ratio.liabilities_to_assets %></p>
+          <p>Interest Coverage: <%= ratio.interest_coverage %></p>
           <p>Debt Service Coverage: <%= acid_test(@stock) %></p>
         </div>
       </div>
