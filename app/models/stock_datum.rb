@@ -1,5 +1,5 @@
 class StockDatum < ApplicationRecord
-  belongs_to :stock_data
+  
   def self.search(id)
     @scan = Scan.where(id: id).first
 
